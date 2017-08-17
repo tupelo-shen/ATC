@@ -241,3 +241,306 @@ User command #1: CopyHex_Flash.bat
 D:\计件器\SOURCE\ATC\ATC_Delta\Project\MDK-ARM(uV4)>copy Flash\Obj\output.hex ..\output(mdk).hex 
 已复制         1 个文件。
 ".\Flash\Obj\output.axf" - 0 Error(s), 27 Warning(s).
+Build target 'Flash'
+compiling App_SysFunction.c...
+linking...
+Program Size: Code=344048 RO-data=653380 RW-data=4260 ZI-data=126204  
+FromELF: creating hex file...
+User command #1: CopyHex_Flash.bat
+D:\计件器\SOURCE\ATC\ATC_Delta\Project\MDK-ARM(uV4)>copy Flash\Obj\output.hex ..\output(mdk).hex 
+已复制         1 个文件。
+".\Flash\Obj\output.axf" - 0 Error(s), 0 Warning(s).
+Build target 'Flash'
+compiling MainTask.c...
+..\..\emWin\emWinTask\MainTask.c(589): warning:  #177-D: variable "i" was declared but never referenced
+..\..\emWin\emWinTask\MainTask.c(596): warning:  #177-D: variable "ICONVIEW_HNum" was declared but never referenced
+..\..\emWin\emWinTask\MainTask.c(597): warning:  #177-D: variable "ICONVIEW_VNum" was declared but never referenced
+..\..\emWin\emWinTask\MainTask.c(110): warning:  #177-D: variable "_aBitmapItem" was declared but never referenced
+linking...
+Program Size: Code=336648 RO-data=653304 RW-data=4196 ZI-data=126204  
+FromELF: creating hex file...
+User command #1: CopyHex_Flash.bat
+D:\计件器\SOURCE\ATC\ATC_Delta\Project\MDK-ARM(uV4)>copy Flash\Obj\output.hex ..\output(mdk).hex 
+已复制         1 个文件。
+".\Flash\Obj\output.axf" - 0 Error(s), 4 Warning(s).
+Load "D:\\计件器\\SOURCE\\ATC\\ATC_Delta\\Project\\MDK-ARM(uV4)\\Flash\\Obj\\output.AXF" 
+* JLink Info: Device "STM32F407IG" selected (1024 KB flash, 128 KB RAM).
+Set JLink Project File to "D:\计件器\SOURCE\ATC\ATC_Delta\Project\MDK-ARM(uV4)\JLinkSettings.ini"
+ 
+JLink info:
+------------
+DLL: V4.50j, compiled Jun 26 2012 09:19:07
+Firmware: J-Link ARM V8 compiled Jun 19 2012 11:29:30
+Hardware: V8.00
+S/N : 20100213 
+Feature(s) : RDI,FlashDL,FlashBP,JFlash,GDBFULL 
+ 
+* JLink Info: Found SWD-DP with ID 0x2BA01477
+* JLink Info: Found SWD-DP with ID 0x2BA01477
+* JLink Info: TPIU fitted.
+* JLink Info: ETM fitted.
+* JLink Info: FPUnit: 6 code (BP) slots and 2 literal slots
+* JLink Info: Found Cortex-M4 r0p1, Little endian.
+ROMTableAddr = 0xE00FF003
+ 
+Target info:
+------------
+Device: STM32F407IG
+VTarget = 3.215V
+State of Pins: 
+TCK: 0, TDI: 0, TDO: 0, TMS: 1, TRES: 1, TRST: 1
+Hardware-Breakpoints: 6
+Software-Breakpoints: 8192
+Watchpoints:          4
+JTAG speed: 4000 kHz
+ 
+Erase Done.
+Programming Done.
+Verify OK.
+Application running ...
+Build target 'Flash'
+compiling MainTask.c...
+..\..\emWin\emWinTask\MainTask.c(589): warning:  #177-D: variable "i" was declared but never referenced
+..\..\emWin\emWinTask\MainTask.c(110): warning:  #177-D: variable "_aBitmapItem" was declared but never referenced
+linking...
+Program Size: Code=343496 RO-data=653380 RW-data=4260 ZI-data=126204  
+FromELF: creating hex file...
+User command #1: CopyHex_Flash.bat
+D:\计件器\SOURCE\ATC\ATC_Delta\Project\MDK-ARM(uV4)>copy Flash\Obj\output.hex ..\output(mdk).hex 
+已复制         1 个文件。
+".\Flash\Obj\output.axf" - 0 Error(s), 2 Warning(s).
+Load "D:\\计件器\\SOURCE\\ATC\\ATC_Delta\\Project\\MDK-ARM(uV4)\\Flash\\Obj\\output.AXF" 
+* JLink Info: Device "STM32F407IG" selected (1024 KB flash, 128 KB RAM).
+Set JLink Project File to "D:\计件器\SOURCE\ATC\ATC_Delta\Project\MDK-ARM(uV4)\JLinkSettings.ini"
+ 
+JLink info:
+------------
+DLL: V4.50j, compiled Jun 26 2012 09:19:07
+Firmware: J-Link ARM V8 compiled Jun 19 2012 11:29:30
+Hardware: V8.00
+S/N : 20100213 
+Feature(s) : RDI,FlashDL,FlashBP,JFlash,GDBFULL 
+ 
+* JLink Info: Found SWD-DP with ID 0x2BA01477
+* JLink Info: Found SWD-DP with ID 0x2BA01477
+* JLink Info: TPIU fitted.
+* JLink Info: ETM fitted.
+* JLink Info: FPUnit: 6 code (BP) slots and 2 literal slots
+* JLink Info: Found Cortex-M4 r0p1, Little endian.
+ROMTableAddr = 0xE00FF003
+ 
+Target info:
+------------
+Device: STM32F407IG
+VTarget = 3.215V
+State of Pins: 
+TCK: 0, TDI: 0, TDO: 0, TMS: 1, TRES: 1, TRST: 1
+Hardware-Breakpoints: 6
+Software-Breakpoints: 8192
+Watchpoints:          4
+JTAG speed: 4000 kHz
+ 
+Erase Done.
+Programming Done.
+Verify OK.
+Application running ...
+Build target 'Flash'
+compiling MainTask.c...
+..\..\emWin\emWinTask\MainTask.c(589): warning:  #177-D: variable "i" was declared but never referenced
+..\..\emWin\emWinTask\MainTask.c(110): warning:  #177-D: variable "_aBitmapItem" was declared but never referenced
+linking...
+Program Size: Code=343496 RO-data=653380 RW-data=4260 ZI-data=126204  
+FromELF: creating hex file...
+User command #1: CopyHex_Flash.bat
+D:\计件器\SOURCE\ATC\ATC_Delta\Project\MDK-ARM(uV4)>copy Flash\Obj\output.hex ..\output(mdk).hex 
+已复制         1 个文件。
+".\Flash\Obj\output.axf" - 0 Error(s), 2 Warning(s).
+Load "D:\\计件器\\SOURCE\\ATC\\ATC_Delta\\Project\\MDK-ARM(uV4)\\Flash\\Obj\\output.AXF" 
+* JLink Info: Device "STM32F407IG" selected (1024 KB flash, 128 KB RAM).
+Set JLink Project File to "D:\计件器\SOURCE\ATC\ATC_Delta\Project\MDK-ARM(uV4)\JLinkSettings.ini"
+ 
+JLink info:
+------------
+DLL: V4.50j, compiled Jun 26 2012 09:19:07
+Firmware: J-Link ARM V8 compiled Jun 19 2012 11:29:30
+Hardware: V8.00
+S/N : 20100213 
+Feature(s) : RDI,FlashDL,FlashBP,JFlash,GDBFULL 
+ 
+* JLink Info: Found SWD-DP with ID 0x2BA01477
+* JLink Info: Found SWD-DP with ID 0x2BA01477
+* JLink Info: TPIU fitted.
+* JLink Info: ETM fitted.
+* JLink Info: FPUnit: 6 code (BP) slots and 2 literal slots
+* JLink Info: Found Cortex-M4 r0p1, Little endian.
+ROMTableAddr = 0xE00FF003
+ 
+Target info:
+------------
+Device: STM32F407IG
+VTarget = 3.209V
+State of Pins: 
+TCK: 0, TDI: 0, TDO: 0, TMS: 1, TRES: 1, TRST: 1
+Hardware-Breakpoints: 6
+Software-Breakpoints: 8192
+Watchpoints:          4
+JTAG speed: 4000 kHz
+ 
+Erase Done.
+Programming Done.
+Verify OK.
+Application running ...
+Build target 'Flash'
+compiling MainTask.c...
+..\..\emWin\emWinTask\MainTask.c(589): warning:  #177-D: variable "i" was declared but never referenced
+..\..\emWin\emWinTask\MainTask.c(110): warning:  #177-D: variable "_aBitmapItem" was declared but never referenced
+linking...
+Program Size: Code=343528 RO-data=653380 RW-data=4260 ZI-data=126204  
+FromELF: creating hex file...
+User command #1: CopyHex_Flash.bat
+D:\计件器\SOURCE\ATC\ATC_Delta\Project\MDK-ARM(uV4)>copy Flash\Obj\output.hex ..\output(mdk).hex 
+已复制         1 个文件。
+".\Flash\Obj\output.axf" - 0 Error(s), 2 Warning(s).
+Load "D:\\计件器\\SOURCE\\ATC\\ATC_Delta\\Project\\MDK-ARM(uV4)\\Flash\\Obj\\output.AXF" 
+* JLink Info: Device "STM32F407IG" selected (1024 KB flash, 128 KB RAM).
+Set JLink Project File to "D:\计件器\SOURCE\ATC\ATC_Delta\Project\MDK-ARM(uV4)\JLinkSettings.ini"
+ 
+JLink info:
+------------
+DLL: V4.50j, compiled Jun 26 2012 09:19:07
+Firmware: J-Link ARM V8 compiled Jun 19 2012 11:29:30
+Hardware: V8.00
+S/N : 20100213 
+Feature(s) : RDI,FlashDL,FlashBP,JFlash,GDBFULL 
+ 
+* JLink Info: Found SWD-DP with ID 0x2BA01477
+* JLink Info: Found SWD-DP with ID 0x2BA01477
+* JLink Info: TPIU fitted.
+* JLink Info: ETM fitted.
+* JLink Info: FPUnit: 6 code (BP) slots and 2 literal slots
+* JLink Info: Found Cortex-M4 r0p1, Little endian.
+ROMTableAddr = 0xE00FF003
+ 
+Target info:
+------------
+Device: STM32F407IG
+VTarget = 3.209V
+State of Pins: 
+TCK: 0, TDI: 0, TDO: 0, TMS: 1, TRES: 1, TRST: 1
+Hardware-Breakpoints: 6
+Software-Breakpoints: 8192
+Watchpoints:          4
+JTAG speed: 4000 kHz
+ 
+Erase Done.
+Programming Done.
+Verify OK.
+Application running ...
+Build target 'Flash'
+compiling MainTask.c...
+linking...
+Program Size: Code=344048 RO-data=653380 RW-data=4260 ZI-data=126204  
+FromELF: creating hex file...
+User command #1: CopyHex_Flash.bat
+D:\计件器\SOURCE\ATC\ATC_Delta\Project\MDK-ARM(uV4)>copy Flash\Obj\output.hex ..\output(mdk).hex 
+已复制         1 个文件。
+".\Flash\Obj\output.axf" - 0 Error(s), 0 Warning(s).
+Load "D:\\计件器\\SOURCE\\ATC\\ATC_Delta\\Project\\MDK-ARM(uV4)\\Flash\\Obj\\output.AXF" 
+* JLink Info: Device "STM32F407IG" selected (1024 KB flash, 128 KB RAM).
+Set JLink Project File to "D:\计件器\SOURCE\ATC\ATC_Delta\Project\MDK-ARM(uV4)\JLinkSettings.ini"
+ 
+JLink info:
+------------
+DLL: V4.50j, compiled Jun 26 2012 09:19:07
+Firmware: J-Link ARM V8 compiled Jun 19 2012 11:29:30
+Hardware: V8.00
+S/N : 20100213 
+Feature(s) : RDI,FlashDL,FlashBP,JFlash,GDBFULL 
+ 
+* JLink Info: Found SWD-DP with ID 0x2BA01477
+* JLink Info: Found SWD-DP with ID 0x2BA01477
+* JLink Info: TPIU fitted.
+* JLink Info: ETM fitted.
+* JLink Info: FPUnit: 6 code (BP) slots and 2 literal slots
+* JLink Info: Found Cortex-M4 r0p1, Little endian.
+ROMTableAddr = 0xE00FF003
+ 
+Target info:
+------------
+Device: STM32F407IG
+VTarget = 3.215V
+State of Pins: 
+TCK: 0, TDI: 0, TDO: 0, TMS: 1, TRES: 1, TRST: 1
+Hardware-Breakpoints: 6
+Software-Breakpoints: 8192
+Watchpoints:          4
+JTAG speed: 4000 kHz
+ 
+Erase Done.
+Programming Done.
+Verify OK.
+Application running ...
+Build target 'Flash'
+compiling MainTask.c...
+linking...
+Program Size: Code=344048 RO-data=653380 RW-data=4260 ZI-data=126204  
+FromELF: creating hex file...
+User command #1: CopyHex_Flash.bat
+D:\计件器\SOURCE\ATC\ATC_Delta\Project\MDK-ARM(uV4)>copy Flash\Obj\output.hex ..\output(mdk).hex 
+已复制         1 个文件。
+".\Flash\Obj\output.axf" - 0 Error(s), 0 Warning(s).
+Build target 'Flash'
+compiling MainTask.c...
+..\..\emWin\emWinTask\MainTask.c(589): warning:  #177-D: variable "i" was declared but never referenced
+..\..\emWin\emWinTask\MainTask.c(110): warning:  #177-D: variable "_aBitmapItem" was declared but never referenced
+linking...
+Program Size: Code=343840 RO-data=653380 RW-data=4260 ZI-data=126204  
+FromELF: creating hex file...
+User command #1: CopyHex_Flash.bat
+D:\计件器\SOURCE\ATC\ATC_Delta\Project\MDK-ARM(uV4)>copy Flash\Obj\output.hex ..\output(mdk).hex 
+已复制         1 个文件。
+".\Flash\Obj\output.axf" - 0 Error(s), 2 Warning(s).
+Load "D:\\计件器\\SOURCE\\ATC\\ATC_Delta\\Project\\MDK-ARM(uV4)\\Flash\\Obj\\output.AXF" 
+* JLink Info: Device "STM32F407IG" selected (1024 KB flash, 128 KB RAM).
+Set JLink Project File to "D:\计件器\SOURCE\ATC\ATC_Delta\Project\MDK-ARM(uV4)\JLinkSettings.ini"
+ 
+JLink info:
+------------
+DLL: V4.50j, compiled Jun 26 2012 09:19:07
+Firmware: J-Link ARM V8 compiled Jun 19 2012 11:29:30
+Hardware: V8.00
+S/N : 20100213 
+Feature(s) : RDI,FlashDL,FlashBP,JFlash,GDBFULL 
+ 
+* JLink Info: Found SWD-DP with ID 0x2BA01477
+* JLink Info: Found SWD-DP with ID 0x2BA01477
+* JLink Info: TPIU fitted.
+* JLink Info: ETM fitted.
+* JLink Info: FPUnit: 6 code (BP) slots and 2 literal slots
+* JLink Info: Found Cortex-M4 r0p1, Little endian.
+ROMTableAddr = 0xE00FF003
+ 
+Target info:
+------------
+Device: STM32F407IG
+VTarget = 3.215V
+State of Pins: 
+TCK: 0, TDI: 0, TDO: 0, TMS: 1, TRES: 1, TRST: 1
+Hardware-Breakpoints: 6
+Software-Breakpoints: 8192
+Watchpoints:          4
+JTAG speed: 4000 kHz
+ 
+Erase Done.
+Programming Done.
+Verify OK.
+Application running ...
+Build target 'Flash'
+compiling MainTask.c...
+linking...
+Program Size: Code=344048 RO-data=653380 RW-data=4260 ZI-data=126204  
+FromELF: creating hex file...
+User command #1: CopyHex_Flash.bat
+D:\计件器\SOURCE\ATC\ATC_Delta\Project\MDK-ARM(uV4)>copy Flash\Obj\output.hex ..\output(mdk).hex 
+已复制         1 个文件。
+".\Flash\Obj\output.axf" - 0 Error(s), 0 Warning(s).

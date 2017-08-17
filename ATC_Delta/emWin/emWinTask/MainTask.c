@@ -346,9 +346,9 @@ static void _cbCallbackMain(WM_MESSAGE * pMsg) {
     case WM_PAINT:
             PaintDialogMain(pMsg);
             break;
-		case WM_INIT_DIALOG:
-            InitDialogMain(pMsg);
-            break;
+    case WM_INIT_DIALOG:
+        InitDialogMain(pMsg);
+        break;
 	case WM_KEY:
 	    switch (((WM_KEY_INFO*)(pMsg->Data.p))->Key) 
 	    {
