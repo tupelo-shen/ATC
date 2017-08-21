@@ -930,6 +930,11 @@
               <FileType>1</FileType>
               <FilePath>..\..\emWin\emWinTask\App_SysIcon.c</FilePath>
             </File>
+            <File>
+              <FileName>Logo_DeltaSmall.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\emWin\emWinTask\Logo_DeltaSmall.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -2643,6 +2648,11 @@
               <FileType>1</FileType>
               <FilePath>..\..\emWin\emWinTask\App_SysIcon.c</FilePath>
             </File>
+            <File>
+              <FileName>Logo_DeltaSmall.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\emWin\emWinTask\Logo_DeltaSmall.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -4355,6 +4365,11 @@
               <FileName>App_SysIcon.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\emWin\emWinTask\App_SysIcon.c</FilePath>
+            </File>
+            <File>
+              <FileName>Logo_DeltaSmall.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\emWin\emWinTask\Logo_DeltaSmall.c</FilePath>
             </File>
           </Files>
         </Group>
