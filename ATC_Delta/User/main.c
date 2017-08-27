@@ -396,6 +396,7 @@ static void AppTaskCOM(void *p_arg)
 */
 extern void uip_pro(void);
 extern void lwip_pro(void);
+WM_HWIN    _hLastFrame;
 static void AppTaskUserIF(void *p_arg)
 {
 	uint8_t uKeyCode;
@@ -427,7 +428,8 @@ static void AppTaskUserIF(void *p_arg)
 					break;
 				
                 case KEY_3_DOWN:		/* 按键K3 用于退出摄像头子界面 */
-				    BSP_OS_SemPost(&SEM_OV7670);  	
+				    // BSP_OS_SemPost(&SEM_OV7670);
+                    WM_SendMessageNoPara(_hLastFrame, WM_NOTIFY_PARENT);                
 					break;
              
                 case JOY_DOWN_U:		/* 摇杆上键按下 */
