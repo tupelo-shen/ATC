@@ -78,7 +78,16 @@ extern GUI_CONST_STORAGE GUI_BITMAP bmLogo_armflySmall;
 #define FRAME_WIDTH               (LCD_GetXSize() - (FRAME_BORDER * 2) - (MAIN_BORDER * 2))
 #define FRAME_HEIGHT              (LCD_GetYSize() - ICONVIEW_BBorder - (FRAME_BORDER * 2) - (MAIN_BORDER + MAIN_TITLE_HEIGHT))
 
-WM_HWIN    _hLastFrame;
+#define LOGO_FRAME_OFFSET_Y       5
+#define LOGO_FRAME_SIZE_X         116
+#define LOGO_FRAME_SIZE_Y         92
+#define LOGO_FRAME_DIST_X         4
+#define LOGO_FRAME_BKCOLOR        0xFFFFFF
+#define LOGO_FRAME_EFFECT         (&WIDGET_Effect_3D2L)
+
+extern WM_HWIN    _hLastFrame;
+static WM_HWIN    _hTitle;
+static WM_HWIN    _hTitlePic;
 /*
 *********************************************************************************************************
 *                                      变量
@@ -441,6 +450,35 @@ static void _DrawDownRect(const WIDGET_EFFECT* pEffect, int x0, int y0, int x1, 
 	r.y1 = y1;
 	_DrawDownRectEx(pEffect, &r);
 }
+
+/*
+*********************************************************************************************************
+*	函 数 名: _DrawLogoBox
+*	功能说明: 小键盘的回调函数
+*	形    参：Index     要显示的位图序号
+*             pBitmap   位图地址
+*	返 回 值: 无
+*********************************************************************************************************
+*/
+static void _DrawLogoBox(int Index, const GUI_BITMAP GUI_UNI_PTR* pBitmap) 
+{
+	int x, y, w, h;
+	
+	x  = (FRAME_WIDTH - (5 * LOGO_FRAME_SIZE_X) - (4 * LOGO_FRAME_DIST_X)) >> 1;
+	y  = FRAME_HEIGHT - LOGO_FRAME_OFFSET_Y - LOGO_FRAME_SIZE_Y;
+	w  = LOGO_FRAME_SIZE_X;
+	h  = LOGO_FRAME_SIZE_Y;
+	x += Index * (w + LOGO_FRAME_DIST_X);
+	GUI_SetBkColor(LOGO_FRAME_BKCOLOR);
+	GUI_ClearRect(x, y, x + w - 1, y + h - 1);
+	_DrawDownRect(LOGO_FRAME_EFFECT, x, y, x + w - 1, y + h - 1);
+	x += (w - pBitmap->XSize) >> 1;
+	y += (h - pBitmap->YSize) >> 1;
+	GUI_DrawBitmap(pBitmap, x, y);
+	GUI_SetBkColor(FRAME_BKCOLOR);
+	GUI_SetColor(FRAME_TEXTCOLOR);
+	GUI_SetFont(FRAME_FONT);
+}
 /*
 *********************************************************************************************************
 *	函 数 名: _PaintFrame
@@ -459,6 +497,72 @@ static void _PaintFrame(void)
 	GUI_SetTextMode(GUI_TM_TRANS);
 	GUI_ClearRectEx(&r);
 }
+/*
+*********************************************************************************************************
+*	函 数 名: _CreateFrame
+*	功能说明: 创建框架窗口
+*	形    参：cb  回调函数地址
+*	返 回 值: 无
+*********************************************************************************************************
+*/
+static WM_HWIN _CreateFrame(WM_CALLBACK* cb) 
+{
+	int x = 0;
+	int y = 0;
+	x = FRAME_BORDER + MAIN_BORDER;
+	y = FRAME_BORDER + MAIN_TITLE_HEIGHT;
+	_hLastFrame = WM_CreateWindowAsChild(x, y, FRAME_WIDTH, FRAME_HEIGHT, WM_HBKWIN, WM_CF_SHOW, cb, 0);
+	return _hLastFrame;
+}
+/*
+*********************************************************************************************************
+*	函 数 名: _DeleteFrame
+*	功能说明: 删除创建的框架窗口
+*	形    参：无
+*	返 回 值: 无
+*********************************************************************************************************
+*/
+static void _DeleteFrame(void) 
+{
+	WM_DeleteWindow(_hLastFrame);
+	_hLastFrame = 0;
+}
+/*
+*********************************************************************************************************
+*	函 数 名: _cbInsertCard
+*	功能说明: 第二个界面，等待用户插入银行卡
+*	形    参：pMsg  参数指针
+*	返 回 值: 无
+*********************************************************************************************************
+*/
+static void _cbInsertCard(WM_MESSAGE* pMsg) 
+{
+	WM_HWIN hWin = pMsg->hWin;
+	switch (pMsg->MsgId) 
+	{
+		case WM_CREATE:
+			/* 设置聚焦 */
+			WM_SetFocus(hWin);
+			break;
+		case WM_KEY:
+            // nothing
+            break;
+		case WM_PAINT:
+			_PaintFrame();
+			_DrawLogoBox(0, &bmLogo_armflySmall);
+			_DrawLogoBox(1, &bmLogo_armflySmall);
+			_DrawLogoBox(2, &bmLogo_armflySmall);
+			_DrawLogoBox(3, &bmLogo_armflySmall);
+			_DrawLogoBox(4, &bmLogo_armflySmall);
+			GUI_DispStringHCenterAt("123456", FRAME_WIDTH >> 1, 15);
+			break;
+		case WM_TOUCH:
+			break;
+		default:
+			WM_DefaultProc(pMsg);
+	}
+}
+
 /*
 *********************************************************************************************************
 *	函 数 名: _cbBkWindow
@@ -482,7 +586,13 @@ void _cbBkWindow(WM_MESSAGE * pMsg)
 
 // 		}
 		break;
-		
+		case WM_KEY:
+//             GUI_SetBkColor(GUI_BLUE);
+//             GUI_Clear();
+//             GUI_SetFont(&GUI_FontHZ_SimSun_16);
+//             GUI_SetColor(GUI_WHITE);
+//             GUI_DispStringHCenterAt("按键K2用于触摸校准,电容屏无需校准", LCD_GetXSize()/2, LCD_GetYSize() - 100);
+        break;
 		/* 重绘消息*/
 		case WM_PAINT:
             {
@@ -495,6 +605,12 @@ void _cbBkWindow(WM_MESSAGE * pMsg)
 				x = MAIN_LOGO_OFFSET_X + MAIN_BORDER;
 				y = MAIN_LOGO_OFFSET_Y + ((MAIN_TITLE_HEIGHT - MAIN_LOGO_BITMAP->YSize) >> 1);
 				GUI_DrawBitmap(MAIN_LOGO_BITMAP, x, y);
+                
+                /* 设置标题 */
+//                 _hTitle = TEXT_CreateEx(0, 5, LCD_GetXSize(), 32, WM_HBKWIN, WM_CF_SHOW, 0, GUI_ID_TEXT0, "自动计数器");
+//                 TEXT_SetTextAlign(_hTitle, GUI_TA_HCENTER);
+//                 TEXT_SetFont(_hTitle, MAIN_FONT);
+                
 				x = MAIN_BORDER;
 				y = MAIN_TITLE_HEIGHT;
 				w = LCD_GetXSize() - (MAIN_BORDER * 2);
@@ -543,10 +659,11 @@ static void _cbLanguage(WM_MESSAGE* pMsg)
 	{
 		case WM_CREATE:
 			/* 设置聚焦 */
-// 			WM_SetFocus(hWin);
-// 			/* 创建两个按钮，用于选择中文和英文 */
-// 			_CreateButton(hWin, "中文", GUI_ID_BUTTON0, (FRAME_WIDTH >> 1) - 150, 80, 300,  50, 0);
-// 			_CreateButton(hWin, "English", GUI_ID_BUTTON1, (FRAME_WIDTH >> 1) - 150, 150, 300,  50, 0);
+			WM_SetFocus(hWin);
+        
+            _hTitle = TEXT_CreateEx(0, 5, LCD_GetXSize(), 32, WM_HBKWIN, WM_CF_SHOW, 0, GUI_ID_TEXT0, "自动计数器");
+            TEXT_SetTextAlign(_hTitle, GUI_TA_HCENTER);
+            TEXT_SetFont(_hTitle, MAIN_FONT);
 			break;
 		 case WM_KEY:
 //             switch (((WM_KEY_INFO*)(pMsg->Data.p))->Key) 
@@ -560,7 +677,8 @@ static void _cbLanguage(WM_MESSAGE* pMsg)
 //             }
             break;
 		case WM_PAINT:
-			_PaintFrame();
+			_PaintFrame(); 
+
 		    GUI_DispStringHCenterAt("请选择语言", FRAME_WIDTH >> 1, 5);
 			GUI_DispStringHCenterAt("Please select your language", FRAME_WIDTH >> 1, 32);
 			break;
@@ -585,28 +703,19 @@ static void _cbLanguage(WM_MESSAGE* pMsg)
 // 				_DeleteFrame();
 // 				_CreateFrame(&_cbInsertCard);
 // 			}
+            /* 创建标题，居中显示 */
+            _hTitlePic = TEXT_CreateEx(0, 5, LCD_GetXSize(), 32, WM_HBKWIN, WM_CF_SHOW, 0, GUI_ID_TEXT0, "工艺文件显示");
+            TEXT_SetTextAlign(_hTitlePic, GUI_TA_HCENTER);
+            TEXT_SetFont(_hTitlePic, MAIN_FONT);
+            /* 删除这个创建的界面 */
+            _DeleteFrame();
+            _CreateFrame(&_cbInsertCard);
 			break;
 		default:
 		WM_DefaultProc(pMsg);
 	}
 }
-/*
-*********************************************************************************************************
-*	函 数 名: _CreateFrame
-*	功能说明: 创建框架窗口
-*	形    参：cb  回调函数地址
-*	返 回 值: 无
-*********************************************************************************************************
-*/
-static WM_HWIN _CreateFrame(WM_CALLBACK* cb) 
-{
-	int x = 0;
-	int y = 0;
-	x = FRAME_BORDER + MAIN_BORDER;
-	y = FRAME_BORDER + MAIN_TITLE_HEIGHT;
-	//_hLastFrame = WM_CreateWindowAsChild(x, y, FRAME_WIDTH, FRAME_HEIGHT, WM_HBKWIN, WM_CF_SHOW, cb, 0);
-	return _hLastFrame;
-}
+
 /*
 *********************************************************************************************************
 *	函 数 名: MainTask
@@ -651,48 +760,6 @@ void MainTask(void)
 	 */
  	WM_SetCreateFlags(WM_CF_MEMDEV);			
 	WM_SetCallback(WM_HBKWIN, _cbBkWindow);
-	
-// 	/* 设置ICONVIEW的显示位置 ********************************************************************/
-// 	ICONVIEW_VNum = (LCD_GetYSize() - ICONVIEW_TBorder - ICONVIEW_BBorder) / ICONVIEW_Height;
-// 	ICONVIEW_HNum = (LCD_GetXSize() - ICONVIEW_LBorder - ICONVIEW_RBorder) / ICONVIEW_Width;
-// 	
-// 	/*在指定位置创建指定尺寸的ICONVIEW 小工具*/
-// 	hWin = ICONVIEW_CreateEx(ICONVIEW_TBorder, 					/* 小工具的最左像素（在父坐标中）*/
-// 						     ICONVIEW_LBorder, 					/* 小工具的最上像素（在父坐标中）*/
-// 							 ICONVIEW_HNum * ICONVIEW_Width,    /* 小工具的水平尺寸（单位：像素）*/
-// 							 ICONVIEW_VNum * ICONVIEW_Height, 	/* 小工具的垂直尺寸（单位：像素）*/
-// 	                         WM_HBKWIN, 				        /* 父窗口的句柄。如果为0 ，则新小工具将成为桌面（顶级窗口）的子窗口 */
-// 							 WM_CF_SHOW | WM_CF_HASTRANS,       /* 窗口创建标记。为使小工具立即可见，通常使用 WM_CF_SHOW */ 
-// 	                         0,//ICONVIEW_CF_AUTOSCROLLBAR_V, 	/* 默认是0，如果不够现实可设置增减垂直滚动条 */
-// 							 GUI_ID_ICONVIEW0, 			        /* 小工具的窗口ID */
-// 							 ICONVIEW_Width, 				    /* 图标的水平尺寸 */
-// 							 ICONVIEW_Height - ICONVIEW_YSpace);/* 图标的垂直尺寸 */
-// 	
-// 	
-//     /* 如果显示屏中装不下这么多的图标，加下拉滚动条 */
-// 	if(ICONVIEW_VNum * ICONVIEW_HNum < ICONVIEW_ImagNum )
-// 	{
-// 		SCROLLBAR_SetWidth(SCROLLBAR_CreateAttached(hWin,SCROLLBAR_CF_VERTICAL),16);
-// 	}
-// 	
-// 	/* 向ICONVIEW 小工具添加新图标 */
-// 	for (i = 0; i < GUI_COUNTOF(_aBitmapItem); i++) 
-// 	{
-// 		
-// 		ICONVIEW_AddBitmapItem(hWin, _aBitmapItem[i].pBitmap, _aBitmapItem[i].pText);
-// 	}
-// 	
-// 	/* 设置小工具的背景色 32 位颜色值的前8 位可用于alpha混合处理效果*/
-// 	ICONVIEW_SetBkColor(hWin, ICONVIEW_CI_SEL, GUI_WHITE | 0x80000000);
-// 	
-// 	/* 设置字体 */
-// 	ICONVIEW_SetFont(hWin, &GUI_Font16B_ASCII);
-// 	
-// 	/* 设置图标在x 或y 方向上的间距。*/
-// 	ICONVIEW_SetSpace(hWin, GUI_COORD_Y, ICONVIEW_YSpace);
-// 	
-// 	/* 设置对齐方式 在5.22版本中最新加入的 */
-// 	ICONVIEW_SetIconAlign(hWin, ICONVIEW_IA_HCENTER|ICONVIEW_IA_TOP);
 
     /* 进入主界面 */
 	_CreateFrame(&_cbLanguage);

@@ -4,19 +4,349 @@
 <h1>礦ision Build Log</h1>
 <h2>Project:</h2>
 D:\计件器\SOURCE\ATC\ATC_Delta\Project\MDK-ARM(uV4)\project.uvproj
-Project File Date:  08/03/2017
+Project File Date:  08/22/2017
 
 <h2>Output:</h2>
 Build target 'Flash'
+compiling main.c...
+..\..\User\main.c(431): error:  #20: identifier "_hLastFrame" is undefined
 compiling MainTask.c...
-..\..\emWin\emWinTask\MainTask.c(110): warning:  #550-D: variable "_aBitmapItem" was set but never used
+..\..\emWin\emWinTask\MainTask.c(473): warning:  #177-D: variable "NCode" was declared but never referenced
+..\..\emWin\emWinTask\MainTask.c(473): warning:  #177-D: variable "Id" was declared but never referenced
+..\..\emWin\emWinTask\MainTask.c(547): warning:  #177-D: variable "hWin" was declared but never referenced
+..\..\emWin\emWinTask\MainTask.c(630): warning:  #177-D: variable "i" was declared but never referenced
+..\..\emWin\emWinTask\MainTask.c(637): warning:  #177-D: variable "ICONVIEW_HNum" was declared but never referenced
+..\..\emWin\emWinTask\MainTask.c(638): warning:  #177-D: variable "ICONVIEW_VNum" was declared but never referenced
+..\..\emWin\emWinTask\MainTask.c(132): warning:  #177-D: variable "_aBitmapItem" was declared but never referenced
+Target not created
+Build target 'Flash'
+compiling main.c...
+compiling MainTask.c...
+..\..\emWin\emWinTask\MainTask.c(473): warning:  #177-D: variable "NCode" was declared but never referenced
+..\..\emWin\emWinTask\MainTask.c(473): warning:  #177-D: variable "Id" was declared but never referenced
+..\..\emWin\emWinTask\MainTask.c(547): warning:  #177-D: variable "hWin" was declared but never referenced
+..\..\emWin\emWinTask\MainTask.c(630): warning:  #177-D: variable "i" was declared but never referenced
+..\..\emWin\emWinTask\MainTask.c(637): warning:  #177-D: variable "ICONVIEW_HNum" was declared but never referenced
+..\..\emWin\emWinTask\MainTask.c(638): warning:  #177-D: variable "ICONVIEW_VNum" was declared but never referenced
+..\..\emWin\emWinTask\MainTask.c(132): warning:  #177-D: variable "_aBitmapItem" was declared but never referenced
 linking...
-Program Size: Code=343848 RO-data=653380 RW-data=4260 ZI-data=126204  
+Program Size: Code=211452 RO-data=640776 RW-data=3360 ZI-data=116608  
 FromELF: creating hex file...
 User command #1: CopyHex_Flash.bat
 D:\计件器\SOURCE\ATC\ATC_Delta\Project\MDK-ARM(uV4)>copy Flash\Obj\output.hex ..\output(mdk).hex 
 已复制         1 个文件。
-".\Flash\Obj\output.axf" - 0 Error(s), 1 Warning(s).
+".\Flash\Obj\output.axf" - 0 Error(s), 7 Warning(s).
+Load "D:\\计件器\\SOURCE\\ATC\\ATC_Delta\\Project\\MDK-ARM(uV4)\\Flash\\Obj\\output.AXF" 
+* JLink Info: Device "STM32F407IG" selected (1024 KB flash, 128 KB RAM).
+Set JLink Project File to "D:\计件器\SOURCE\ATC\ATC_Delta\Project\MDK-ARM(uV4)\JLinkSettings.ini"
+ 
+JLink info:
+------------
+DLL: V4.50j, compiled Jun 26 2012 09:19:07
+Firmware: J-Link ARM V8 compiled Jun 19 2012 11:29:30
+Hardware: V8.00
+S/N : 20100213 
+Feature(s) : RDI,FlashDL,FlashBP,JFlash,GDBFULL 
+ 
+* JLink Info: Found SWD-DP with ID 0x2BA01477
+* JLink Info: Found SWD-DP with ID 0x2BA01477
+* JLink Info: TPIU fitted.
+* JLink Info: ETM fitted.
+* JLink Info: FPUnit: 6 code (BP) slots and 2 literal slots
+* JLink Info: Found Cortex-M4 r0p1, Little endian.
+ROMTableAddr = 0xE00FF003
+ 
+Target info:
+------------
+Device: STM32F407IG
+VTarget = 3.209V
+State of Pins: 
+TCK: 0, TDI: 0, TDO: 0, TMS: 1, TRES: 1, TRST: 1
+Hardware-Breakpoints: 6
+Software-Breakpoints: 8192
+Watchpoints:          4
+JTAG speed: 4000 kHz
+ 
+Erase Done.
+Programming Done.
+Verify OK.
+Application running ...
+Build target 'Flash'
+compiling MainTask.c...
+..\..\emWin\emWinTask\MainTask.c(473): warning:  #177-D: variable "NCode" was declared but never referenced
+..\..\emWin\emWinTask\MainTask.c(473): warning:  #177-D: variable "Id" was declared but never referenced
+..\..\emWin\emWinTask\MainTask.c(547): warning:  #177-D: variable "hWin" was declared but never referenced
+..\..\emWin\emWinTask\MainTask.c(629): warning:  #177-D: variable "i" was declared but never referenced
+..\..\emWin\emWinTask\MainTask.c(636): warning:  #177-D: variable "ICONVIEW_HNum" was declared but never referenced
+..\..\emWin\emWinTask\MainTask.c(637): warning:  #177-D: variable "ICONVIEW_VNum" was declared but never referenced
+..\..\emWin\emWinTask\MainTask.c(132): warning:  #177-D: variable "_aBitmapItem" was declared but never referenced
+linking...
+Program Size: Code=211436 RO-data=640776 RW-data=3360 ZI-data=116608  
+FromELF: creating hex file...
+User command #1: CopyHex_Flash.bat
+D:\计件器\SOURCE\ATC\ATC_Delta\Project\MDK-ARM(uV4)>copy Flash\Obj\output.hex ..\output(mdk).hex 
+已复制         1 个文件。
+".\Flash\Obj\output.axf" - 0 Error(s), 7 Warning(s).
+Load "D:\\计件器\\SOURCE\\ATC\\ATC_Delta\\Project\\MDK-ARM(uV4)\\Flash\\Obj\\output.AXF" 
+* JLink Info: Device "STM32F407IG" selected (1024 KB flash, 128 KB RAM).
+Set JLink Project File to "D:\计件器\SOURCE\ATC\ATC_Delta\Project\MDK-ARM(uV4)\JLinkSettings.ini"
+ 
+JLink info:
+------------
+DLL: V4.50j, compiled Jun 26 2012 09:19:07
+Firmware: J-Link ARM V8 compiled Jun 19 2012 11:29:30
+Hardware: V8.00
+S/N : 20100213 
+Feature(s) : RDI,FlashDL,FlashBP,JFlash,GDBFULL 
+ 
+* JLink Info: Found SWD-DP with ID 0x2BA01477
+* JLink Info: Found SWD-DP with ID 0x2BA01477
+* JLink Info: TPIU fitted.
+* JLink Info: ETM fitted.
+* JLink Info: FPUnit: 6 code (BP) slots and 2 literal slots
+* JLink Info: Found Cortex-M4 r0p1, Little endian.
+ROMTableAddr = 0xE00FF003
+ 
+Target info:
+------------
+Device: STM32F407IG
+VTarget = 3.209V
+State of Pins: 
+TCK: 0, TDI: 0, TDO: 0, TMS: 1, TRES: 1, TRST: 1
+Hardware-Breakpoints: 6
+Software-Breakpoints: 8192
+Watchpoints:          4
+JTAG speed: 4000 kHz
+ 
+Erase Done.
+Programming Done.
+Verify OK.
+Application running ...
+Build target 'Flash'
+compiling MainTask.c...
+..\..\emWin\emWinTask\MainTask.c(473): warning:  #177-D: variable "NCode" was declared but never referenced
+..\..\emWin\emWinTask\MainTask.c(473): warning:  #177-D: variable "Id" was declared but never referenced
+..\..\emWin\emWinTask\MainTask.c(573): error:  #20: identifier "_hTitle" is undefined
+..\..\emWin\emWinTask\MainTask.c(573): warning:  #223-D: function "_GetLang" declared implicitly
+..\..\emWin\emWinTask\MainTask.c(573): error:  #20: identifier "TEXT_ID_GELDAUTOMAT" is undefined
+..\..\emWin\emWinTask\MainTask.c(573): error:  #167: argument of type "int" is incompatible with parameter of type "const char *"
+..\..\emWin\emWinTask\MainTask.c(547): warning:  #177-D: variable "hWin" was declared but never referenced
+..\..\emWin\emWinTask\MainTask.c(630): warning:  #177-D: variable "i" was declared but never referenced
+..\..\emWin\emWinTask\MainTask.c(637): warning:  #177-D: variable "ICONVIEW_HNum" was declared but never referenced
+..\..\emWin\emWinTask\MainTask.c(638): warning:  #177-D: variable "ICONVIEW_VNum" was declared but never referenced
+..\..\emWin\emWinTask\MainTask.c(132): warning:  #177-D: variable "_aBitmapItem" was declared but never referenced
+Target not created
+Build target 'Flash'
+compiling MainTask.c...
+..\..\emWin\emWinTask\MainTask.c(474): warning:  #177-D: variable "NCode" was declared but never referenced
+..\..\emWin\emWinTask\MainTask.c(474): warning:  #177-D: variable "Id" was declared but never referenced
+..\..\emWin\emWinTask\MainTask.c(548): warning:  #177-D: variable "hWin" was declared but never referenced
+..\..\emWin\emWinTask\MainTask.c(632): warning:  #177-D: variable "i" was declared but never referenced
+..\..\emWin\emWinTask\MainTask.c(639): warning:  #177-D: variable "ICONVIEW_HNum" was declared but never referenced
+..\..\emWin\emWinTask\MainTask.c(640): warning:  #177-D: variable "ICONVIEW_VNum" was declared but never referenced
+..\..\emWin\emWinTask\MainTask.c(82): warning:  #550-D: variable "_hTitle" was set but never used
+..\..\emWin\emWinTask\MainTask.c(133): warning:  #177-D: variable "_aBitmapItem" was declared but never referenced
+linking...
+Program Size: Code=211676 RO-data=640776 RW-data=3364 ZI-data=116604  
+FromELF: creating hex file...
+User command #1: CopyHex_Flash.bat
+D:\计件器\SOURCE\ATC\ATC_Delta\Project\MDK-ARM(uV4)>copy Flash\Obj\output.hex ..\output(mdk).hex 
+已复制         1 个文件。
+".\Flash\Obj\output.axf" - 0 Error(s), 8 Warning(s).
+Build target 'Flash'
+compiling MainTask.c...
+..\..\emWin\emWinTask\MainTask.c(474): warning:  #177-D: variable "NCode" was declared but never referenced
+..\..\emWin\emWinTask\MainTask.c(474): warning:  #177-D: variable "Id" was declared but never referenced
+..\..\emWin\emWinTask\MainTask.c(548): warning:  #177-D: variable "hWin" was declared but never referenced
+..\..\emWin\emWinTask\MainTask.c(634): warning:  #177-D: variable "i" was declared but never referenced
+..\..\emWin\emWinTask\MainTask.c(641): warning:  #177-D: variable "ICONVIEW_HNum" was declared but never referenced
+..\..\emWin\emWinTask\MainTask.c(642): warning:  #177-D: variable "ICONVIEW_VNum" was declared but never referenced
+..\..\emWin\emWinTask\MainTask.c(133): warning:  #177-D: variable "_aBitmapItem" was declared but never referenced
+linking...
+Program Size: Code=211700 RO-data=640776 RW-data=3364 ZI-data=116604  
+FromELF: creating hex file...
+User command #1: CopyHex_Flash.bat
+D:\计件器\SOURCE\ATC\ATC_Delta\Project\MDK-ARM(uV4)>copy Flash\Obj\output.hex ..\output(mdk).hex 
+已复制         1 个文件。
+".\Flash\Obj\output.axf" - 0 Error(s), 7 Warning(s).
+Load "D:\\计件器\\SOURCE\\ATC\\ATC_Delta\\Project\\MDK-ARM(uV4)\\Flash\\Obj\\output.AXF" 
+* JLink Info: Device "STM32F407IG" selected (1024 KB flash, 128 KB RAM).
+Set JLink Project File to "D:\计件器\SOURCE\ATC\ATC_Delta\Project\MDK-ARM(uV4)\JLinkSettings.ini"
+ 
+JLink info:
+------------
+DLL: V4.50j, compiled Jun 26 2012 09:19:07
+Firmware: J-Link ARM V8 compiled Jun 19 2012 11:29:30
+Hardware: V8.00
+S/N : 20100213 
+Feature(s) : RDI,FlashDL,FlashBP,JFlash,GDBFULL 
+ 
+* JLink Info: Found SWD-DP with ID 0x2BA01477
+* JLink Info: Found SWD-DP with ID 0x2BA01477
+* JLink Info: TPIU fitted.
+* JLink Info: ETM fitted.
+* JLink Info: FPUnit: 6 code (BP) slots and 2 literal slots
+* JLink Info: Found Cortex-M4 r0p1, Little endian.
+ROMTableAddr = 0xE00FF003
+ 
+Target info:
+------------
+Device: STM32F407IG
+VTarget = 3.209V
+State of Pins: 
+TCK: 0, TDI: 0, TDO: 0, TMS: 1, TRES: 1, TRST: 1
+Hardware-Breakpoints: 6
+Software-Breakpoints: 8192
+Watchpoints:          4
+JTAG speed: 4000 kHz
+ 
+Erase Done.
+Programming Done.
+Verify OK.
+Application running ...
+Build target 'Flash'
+compiling MainTask.c...
+..\..\emWin\emWinTask\MainTask.c(474): warning:  #177-D: variable "NCode" was declared but never referenced
+..\..\emWin\emWinTask\MainTask.c(474): warning:  #177-D: variable "Id" was declared but never referenced
+..\..\emWin\emWinTask\MainTask.c(548): warning:  #177-D: variable "hWin" was declared but never referenced
+..\..\emWin\emWinTask\MainTask.c(637): warning:  #177-D: variable "i" was declared but never referenced
+..\..\emWin\emWinTask\MainTask.c(644): warning:  #177-D: variable "ICONVIEW_HNum" was declared but never referenced
+..\..\emWin\emWinTask\MainTask.c(645): warning:  #177-D: variable "ICONVIEW_VNum" was declared but never referenced
+..\..\emWin\emWinTask\MainTask.c(133): warning:  #177-D: variable "_aBitmapItem" was declared but never referenced
+linking...
+Program Size: Code=211700 RO-data=640776 RW-data=3364 ZI-data=116604  
+FromELF: creating hex file...
+User command #1: CopyHex_Flash.bat
+D:\计件器\SOURCE\ATC\ATC_Delta\Project\MDK-ARM(uV4)>copy Flash\Obj\output.hex ..\output(mdk).hex 
+已复制         1 个文件。
+".\Flash\Obj\output.axf" - 0 Error(s), 7 Warning(s).
+Load "D:\\计件器\\SOURCE\\ATC\\ATC_Delta\\Project\\MDK-ARM(uV4)\\Flash\\Obj\\output.AXF" 
+* JLink Info: Device "STM32F407IG" selected (1024 KB flash, 128 KB RAM).
+Set JLink Project File to "D:\计件器\SOURCE\ATC\ATC_Delta\Project\MDK-ARM(uV4)\JLinkSettings.ini"
+ 
+JLink info:
+------------
+DLL: V4.50j, compiled Jun 26 2012 09:19:07
+Firmware: J-Link ARM V8 compiled Jun 19 2012 11:29:30
+Hardware: V8.00
+S/N : 20100213 
+Feature(s) : RDI,FlashDL,FlashBP,JFlash,GDBFULL 
+ 
+* JLink Info: Found SWD-DP with ID 0x2BA01477
+* JLink Info: Found SWD-DP with ID 0x2BA01477
+* JLink Info: TPIU fitted.
+* JLink Info: ETM fitted.
+* JLink Info: FPUnit: 6 code (BP) slots and 2 literal slots
+* JLink Info: Found Cortex-M4 r0p1, Little endian.
+ROMTableAddr = 0xE00FF003
+ 
+Target info:
+------------
+Device: STM32F407IG
+VTarget = 3.209V
+State of Pins: 
+TCK: 0, TDI: 0, TDO: 0, TMS: 1, TRES: 1, TRST: 1
+Hardware-Breakpoints: 6
+Software-Breakpoints: 8192
+Watchpoints:          4
+JTAG speed: 4000 kHz
+ 
+Erase Done.
+Programming Done.
+Verify OK.
+Application running ...
+Build target 'Flash'
+compiling MainTask.c...
+..\..\emWin\emWinTask\MainTask.c(474): warning:  #177-D: variable "NCode" was declared but never referenced
+..\..\emWin\emWinTask\MainTask.c(474): warning:  #177-D: variable "Id" was declared but never referenced
+..\..\emWin\emWinTask\MainTask.c(548): warning:  #177-D: variable "hWin" was declared but never referenced
+..\..\emWin\emWinTask\MainTask.c(636): warning:  #177-D: variable "i" was declared but never referenced
+..\..\emWin\emWinTask\MainTask.c(643): warning:  #177-D: variable "ICONVIEW_HNum" was declared but never referenced
+..\..\emWin\emWinTask\MainTask.c(644): warning:  #177-D: variable "ICONVIEW_VNum" was declared but never referenced
+..\..\emWin\emWinTask\MainTask.c(133): warning:  #177-D: variable "_aBitmapItem" was declared but never referenced
+linking...
+Program Size: Code=211700 RO-data=640776 RW-data=3364 ZI-data=116604  
+FromELF: creating hex file...
+User command #1: CopyHex_Flash.bat
+D:\计件器\SOURCE\ATC\ATC_Delta\Project\MDK-ARM(uV4)>copy Flash\Obj\output.hex ..\output(mdk).hex 
+已复制         1 个文件。
+".\Flash\Obj\output.axf" - 0 Error(s), 7 Warning(s).
+Load "D:\\计件器\\SOURCE\\ATC\\ATC_Delta\\Project\\MDK-ARM(uV4)\\Flash\\Obj\\output.AXF" 
+* JLink Info: Device "STM32F407IG" selected (1024 KB flash, 128 KB RAM).
+Set JLink Project File to "D:\计件器\SOURCE\ATC\ATC_Delta\Project\MDK-ARM(uV4)\JLinkSettings.ini"
+ 
+JLink info:
+------------
+DLL: V4.50j, compiled Jun 26 2012 09:19:07
+Firmware: J-Link ARM V8 compiled Jun 19 2012 11:29:30
+Hardware: V8.00
+S/N : 20100213 
+Feature(s) : RDI,FlashDL,FlashBP,JFlash,GDBFULL 
+ 
+* JLink Info: Found SWD-DP with ID 0x2BA01477
+* JLink Info: Found SWD-DP with ID 0x2BA01477
+* JLink Info: TPIU fitted.
+* JLink Info: ETM fitted.
+* JLink Info: FPUnit: 6 code (BP) slots and 2 literal slots
+* JLink Info: Found Cortex-M4 r0p1, Little endian.
+ROMTableAddr = 0xE00FF003
+ 
+Target info:
+------------
+Device: STM32F407IG
+VTarget = 3.209V
+State of Pins: 
+TCK: 0, TDI: 0, TDO: 0, TMS: 1, TRES: 1, TRST: 1
+Hardware-Breakpoints: 6
+Software-Breakpoints: 8192
+Watchpoints:          4
+JTAG speed: 4000 kHz
+ 
+Erase Done.
+Programming Done.
+Verify OK.
+Application running ...
+Build target 'Flash'
+compiling MainTask.c...
+..\..\emWin\emWinTask\MainTask.c(474): warning:  #177-D: variable "NCode" was declared but never referenced
+..\..\emWin\emWinTask\MainTask.c(474): warning:  #177-D: variable "Id" was declared but never referenced
+..\..\emWin\emWinTask\MainTask.c(578): error:  #167: argument of type "GUI_FONT" is incompatible with parameter of type "const GUI_FONT *"
+..\..\emWin\emWinTask\MainTask.c(548): warning:  #177-D: variable "hWin" was declared but never referenced
+..\..\emWin\emWinTask\MainTask.c(636): warning:  #177-D: variable "i" was declared but never referenced
+..\..\emWin\emWinTask\MainTask.c(643): warning:  #177-D: variable "ICONVIEW_HNum" was declared but never referenced
+..\..\emWin\emWinTask\MainTask.c(644): warning:  #177-D: variable "ICONVIEW_VNum" was declared but never referenced
+..\..\emWin\emWinTask\MainTask.c(133): warning:  #177-D: variable "_aBitmapItem" was declared but never referenced
+Target not created
+Load "D:\\计件器\\SOURCE\\ATC\\ATC_Delta\\Project\\MDK-ARM(uV4)\\Flash\\Obj\\output.AXF" 
+_____^
+*** error 56: cannot open file
+Build target 'Flash'
+compiling MainTask.c...
+..\..\emWin\emWinTask\MainTask.c(474): warning:  #177-D: variable "NCode" was declared but never referenced
+..\..\emWin\emWinTask\MainTask.c(474): warning:  #177-D: variable "Id" was declared but never referenced
+..\..\emWin\emWinTask\MainTask.c(578): error:  #167: argument of type "GUI_FONT" is incompatible with parameter of type "const GUI_FONT *"
+..\..\emWin\emWinTask\MainTask.c(548): warning:  #177-D: variable "hWin" was declared but never referenced
+..\..\emWin\emWinTask\MainTask.c(636): warning:  #177-D: variable "i" was declared but never referenced
+..\..\emWin\emWinTask\MainTask.c(643): warning:  #177-D: variable "ICONVIEW_HNum" was declared but never referenced
+..\..\emWin\emWinTask\MainTask.c(644): warning:  #177-D: variable "ICONVIEW_VNum" was declared but never referenced
+..\..\emWin\emWinTask\MainTask.c(133): warning:  #177-D: variable "_aBitmapItem" was declared but never referenced
+Target not created
+Build target 'Flash'
+compiling MainTask.c...
+..\..\emWin\emWinTask\MainTask.c(474): warning:  #177-D: variable "NCode" was declared but never referenced
+..\..\emWin\emWinTask\MainTask.c(474): warning:  #177-D: variable "Id" was declared but never referenced
+..\..\emWin\emWinTask\MainTask.c(548): warning:  #177-D: variable "hWin" was declared but never referenced
+..\..\emWin\emWinTask\MainTask.c(636): warning:  #177-D: variable "i" was declared but never referenced
+..\..\emWin\emWinTask\MainTask.c(643): warning:  #177-D: variable "ICONVIEW_HNum" was declared but never referenced
+..\..\emWin\emWinTask\MainTask.c(644): warning:  #177-D: variable "ICONVIEW_VNum" was declared but never referenced
+..\..\emWin\emWinTask\MainTask.c(133): warning:  #177-D: variable "_aBitmapItem" was declared but never referenced
+linking...
+Program Size: Code=211700 RO-data=640776 RW-data=3364 ZI-data=116604  
+FromELF: creating hex file...
+User command #1: CopyHex_Flash.bat
+D:\计件器\SOURCE\ATC\ATC_Delta\Project\MDK-ARM(uV4)>copy Flash\Obj\output.hex ..\output(mdk).hex 
+已复制         1 个文件。
+".\Flash\Obj\output.axf" - 0 Error(s), 7 Warning(s).
 Load "D:\\计件器\\SOURCE\\ATC\\ATC_Delta\\Project\\MDK-ARM(uV4)\\Flash\\Obj\\output.AXF" 
 * JLink Info: Device "STM32F407IG" selected (1024 KB flash, 128 KB RAM).
 Set JLink Project File to "D:\计件器\SOURCE\ATC\ATC_Delta\Project\MDK-ARM(uV4)\JLinkSettings.ini"
@@ -54,22 +384,36 @@ Verify OK.
 Application running ...
 Build target 'Flash'
 compiling MainTask.c...
+..\..\emWin\emWinTask\MainTask.c(474): warning:  #177-D: variable "NCode" was declared but never referenced
+..\..\emWin\emWinTask\MainTask.c(474): warning:  #177-D: variable "Id" was declared but never referenced
+..\..\emWin\emWinTask\MainTask.c(554): warning:  #177-D: variable "hWin" was declared but never referenced
+..\..\emWin\emWinTask\MainTask.c(635): warning:  #177-D: variable "i" was declared but never referenced
+..\..\emWin\emWinTask\MainTask.c(642): warning:  #177-D: variable "ICONVIEW_HNum" was declared but never referenced
+..\..\emWin\emWinTask\MainTask.c(643): warning:  #177-D: variable "ICONVIEW_VNum" was declared but never referenced
+..\..\emWin\emWinTask\MainTask.c(133): warning:  #177-D: variable "_aBitmapItem" was declared but never referenced
 linking...
-Program Size: Code=344048 RO-data=653380 RW-data=4260 ZI-data=126204  
+Program Size: Code=211612 RO-data=640776 RW-data=3364 ZI-data=116604  
 FromELF: creating hex file...
 User command #1: CopyHex_Flash.bat
 D:\计件器\SOURCE\ATC\ATC_Delta\Project\MDK-ARM(uV4)>copy Flash\Obj\output.hex ..\output(mdk).hex 
 已复制         1 个文件。
-".\Flash\Obj\output.axf" - 0 Error(s), 0 Warning(s).
+".\Flash\Obj\output.axf" - 0 Error(s), 7 Warning(s).
 Build target 'Flash'
 compiling MainTask.c...
+..\..\emWin\emWinTask\MainTask.c(474): warning:  #177-D: variable "NCode" was declared but never referenced
+..\..\emWin\emWinTask\MainTask.c(474): warning:  #177-D: variable "Id" was declared but never referenced
+..\..\emWin\emWinTask\MainTask.c(554): warning:  #177-D: variable "hWin" was declared but never referenced
+..\..\emWin\emWinTask\MainTask.c(635): warning:  #177-D: variable "i" was declared but never referenced
+..\..\emWin\emWinTask\MainTask.c(642): warning:  #177-D: variable "ICONVIEW_HNum" was declared but never referenced
+..\..\emWin\emWinTask\MainTask.c(643): warning:  #177-D: variable "ICONVIEW_VNum" was declared but never referenced
+..\..\emWin\emWinTask\MainTask.c(133): warning:  #177-D: variable "_aBitmapItem" was declared but never referenced
 linking...
-Program Size: Code=344048 RO-data=653380 RW-data=4260 ZI-data=126204  
+Program Size: Code=211612 RO-data=640776 RW-data=3364 ZI-data=116604  
 FromELF: creating hex file...
 User command #1: CopyHex_Flash.bat
 D:\计件器\SOURCE\ATC\ATC_Delta\Project\MDK-ARM(uV4)>copy Flash\Obj\output.hex ..\output(mdk).hex 
 已复制         1 个文件。
-".\Flash\Obj\output.axf" - 0 Error(s), 0 Warning(s).
+".\Flash\Obj\output.axf" - 0 Error(s), 7 Warning(s).
 Load "D:\\计件器\\SOURCE\\ATC\\ATC_Delta\\Project\\MDK-ARM(uV4)\\Flash\\Obj\\output.AXF" 
 * JLink Info: Device "STM32F407IG" selected (1024 KB flash, 128 KB RAM).
 Set JLink Project File to "D:\计件器\SOURCE\ATC\ATC_Delta\Project\MDK-ARM(uV4)\JLinkSettings.ini"
@@ -107,14 +451,20 @@ Verify OK.
 Application running ...
 Build target 'Flash'
 compiling MainTask.c...
-..\..\emWin\emWinTask\MainTask.c(110): warning:  #550-D: variable "_aBitmapItem" was set but never used
+..\..\emWin\emWinTask\MainTask.c(474): warning:  #177-D: variable "NCode" was declared but never referenced
+..\..\emWin\emWinTask\MainTask.c(474): warning:  #177-D: variable "Id" was declared but never referenced
+..\..\emWin\emWinTask\MainTask.c(554): warning:  #177-D: variable "hWin" was declared but never referenced
+..\..\emWin\emWinTask\MainTask.c(634): warning:  #177-D: variable "i" was declared but never referenced
+..\..\emWin\emWinTask\MainTask.c(641): warning:  #177-D: variable "ICONVIEW_HNum" was declared but never referenced
+..\..\emWin\emWinTask\MainTask.c(642): warning:  #177-D: variable "ICONVIEW_VNum" was declared but never referenced
+..\..\emWin\emWinTask\MainTask.c(133): warning:  #177-D: variable "_aBitmapItem" was declared but never referenced
 linking...
-Program Size: Code=343848 RO-data=653380 RW-data=4260 ZI-data=126204  
+Program Size: Code=211612 RO-data=640776 RW-data=3364 ZI-data=116604  
 FromELF: creating hex file...
 User command #1: CopyHex_Flash.bat
 D:\计件器\SOURCE\ATC\ATC_Delta\Project\MDK-ARM(uV4)>copy Flash\Obj\output.hex ..\output(mdk).hex 
 已复制         1 个文件。
-".\Flash\Obj\output.axf" - 0 Error(s), 1 Warning(s).
+".\Flash\Obj\output.axf" - 0 Error(s), 7 Warning(s).
 Load "D:\\计件器\\SOURCE\\ATC\\ATC_Delta\\Project\\MDK-ARM(uV4)\\Flash\\Obj\\output.AXF" 
 * JLink Info: Device "STM32F407IG" selected (1024 KB flash, 128 KB RAM).
 Set JLink Project File to "D:\计件器\SOURCE\ATC\ATC_Delta\Project\MDK-ARM(uV4)\JLinkSettings.ini"
@@ -152,14 +502,14 @@ Verify OK.
 Application running ...
 Build target 'Flash'
 compiling MainTask.c...
-..\..\emWin\emWinTask\MainTask.c(395): warning:  #177-D: variable "NCode" was declared but never referenced
-..\..\emWin\emWinTask\MainTask.c(395): warning:  #177-D: variable "Id" was declared but never referenced
-..\..\emWin\emWinTask\MainTask.c(449): warning:  #177-D: variable "i" was declared but never referenced
-..\..\emWin\emWinTask\MainTask.c(456): warning:  #177-D: variable "ICONVIEW_HNum" was declared but never referenced
-..\..\emWin\emWinTask\MainTask.c(457): warning:  #177-D: variable "ICONVIEW_VNum" was declared but never referenced
-..\..\emWin\emWinTask\MainTask.c(110): warning:  #177-D: variable "_aBitmapItem" was declared but never referenced
+..\..\emWin\emWinTask\MainTask.c(474): warning:  #177-D: variable "NCode" was declared but never referenced
+..\..\emWin\emWinTask\MainTask.c(474): warning:  #177-D: variable "Id" was declared but never referenced
+..\..\emWin\emWinTask\MainTask.c(637): warning:  #177-D: variable "i" was declared but never referenced
+..\..\emWin\emWinTask\MainTask.c(644): warning:  #177-D: variable "ICONVIEW_HNum" was declared but never referenced
+..\..\emWin\emWinTask\MainTask.c(645): warning:  #177-D: variable "ICONVIEW_VNum" was declared but never referenced
+..\..\emWin\emWinTask\MainTask.c(133): warning:  #177-D: variable "_aBitmapItem" was declared but never referenced
 linking...
-Program Size: Code=209388 RO-data=632912 RW-data=3340 ZI-data=116604  
+Program Size: Code=211608 RO-data=640776 RW-data=3364 ZI-data=116604  
 FromELF: creating hex file...
 User command #1: CopyHex_Flash.bat
 D:\计件器\SOURCE\ATC\ATC_Delta\Project\MDK-ARM(uV4)>copy Flash\Obj\output.hex ..\output(mdk).hex 
@@ -202,422 +552,19 @@ Verify OK.
 Application running ...
 Build target 'Flash'
 compiling MainTask.c...
-..\..\emWin\emWinTask\MainTask.c(271): warning:  #550-D: variable "temp" was set but never used
-..\..\emWin\emWinTask\MainTask.c(399): warning:  #177-D: variable "NCode" was declared but never referenced
-..\..\emWin\emWinTask\MainTask.c(399): warning:  #177-D: variable "Id" was declared but never referenced
-..\..\emWin\emWinTask\MainTask.c(453): warning:  #177-D: variable "i" was declared but never referenced
-..\..\emWin\emWinTask\MainTask.c(460): warning:  #177-D: variable "ICONVIEW_HNum" was declared but never referenced
-..\..\emWin\emWinTask\MainTask.c(461): warning:  #177-D: variable "ICONVIEW_VNum" was declared but never referenced
-..\..\emWin\emWinTask\MainTask.c(110): warning:  #177-D: variable "_aBitmapItem" was declared but never referenced
+..\..\emWin\emWinTask\MainTask.c(474): warning:  #177-D: variable "NCode" was declared but never referenced
+..\..\emWin\emWinTask\MainTask.c(474): warning:  #177-D: variable "Id" was declared but never referenced
+..\..\emWin\emWinTask\MainTask.c(635): warning:  #177-D: variable "i" was declared but never referenced
+..\..\emWin\emWinTask\MainTask.c(642): warning:  #177-D: variable "ICONVIEW_HNum" was declared but never referenced
+..\..\emWin\emWinTask\MainTask.c(643): warning:  #177-D: variable "ICONVIEW_VNum" was declared but never referenced
+..\..\emWin\emWinTask\MainTask.c(133): warning:  #177-D: variable "_aBitmapItem" was declared but never referenced
 linking...
-Program Size: Code=209428 RO-data=632912 RW-data=3340 ZI-data=116604  
-FromELF: creating hex file...
-User command #1: CopyHex_Flash.bat
-D:\计件器\SOURCE\ATC\ATC_Delta\Project\MDK-ARM(uV4)>copy Flash\Obj\output.hex ..\output(mdk).hex 
-已复制         1 个文件。
-".\Flash\Obj\output.axf" - 0 Error(s), 7 Warning(s).
-Load "D:\\计件器\\SOURCE\\ATC\\ATC_Delta\\Project\\MDK-ARM(uV4)\\Flash\\Obj\\output.AXF" 
-* JLink Info: Device "STM32F407IG" selected (1024 KB flash, 128 KB RAM).
-Set JLink Project File to "D:\计件器\SOURCE\ATC\ATC_Delta\Project\MDK-ARM(uV4)\JLinkSettings.ini"
- 
-JLink info:
-------------
-DLL: V4.50j, compiled Jun 26 2012 09:19:07
-Firmware: J-Link ARM V8 compiled Jun 19 2012 11:29:30
-Hardware: V8.00
-S/N : 20100213 
-Feature(s) : RDI,FlashDL,FlashBP,JFlash,GDBFULL 
- 
-* JLink Info: Found SWD-DP with ID 0x2BA01477
-* JLink Info: Found SWD-DP with ID 0x2BA01477
-* JLink Info: TPIU fitted.
-* JLink Info: ETM fitted.
-* JLink Info: FPUnit: 6 code (BP) slots and 2 literal slots
-* JLink Info: Found Cortex-M4 r0p1, Little endian.
-ROMTableAddr = 0xE00FF003
- 
-Target info:
-------------
-Device: STM32F407IG
-VTarget = 3.215V
-State of Pins: 
-TCK: 0, TDI: 0, TDO: 0, TMS: 1, TRES: 1, TRST: 1
-Hardware-Breakpoints: 6
-Software-Breakpoints: 8192
-Watchpoints:          4
-JTAG speed: 4000 kHz
- 
-Erase Done.
-Programming Done.
-Verify OK.
-Application running ...
-Build target 'Flash'
-compiling MainTask.c...
-..\..\emWin\emWinTask\MainTask.c(271): warning:  #177-D: variable "temp" was declared but never referenced
-..\..\emWin\emWinTask\MainTask.c(398): warning:  #177-D: variable "NCode" was declared but never referenced
-..\..\emWin\emWinTask\MainTask.c(398): warning:  #177-D: variable "Id" was declared but never referenced
-..\..\emWin\emWinTask\MainTask.c(452): warning:  #177-D: variable "i" was declared but never referenced
-..\..\emWin\emWinTask\MainTask.c(459): warning:  #177-D: variable "ICONVIEW_HNum" was declared but never referenced
-..\..\emWin\emWinTask\MainTask.c(460): warning:  #177-D: variable "ICONVIEW_VNum" was declared but never referenced
-..\..\emWin\emWinTask\MainTask.c(110): warning:  #177-D: variable "_aBitmapItem" was declared but never referenced
-linking...
-Program Size: Code=209412 RO-data=632912 RW-data=3340 ZI-data=116604  
-FromELF: creating hex file...
-User command #1: CopyHex_Flash.bat
-D:\计件器\SOURCE\ATC\ATC_Delta\Project\MDK-ARM(uV4)>copy Flash\Obj\output.hex ..\output(mdk).hex 
-已复制         1 个文件。
-".\Flash\Obj\output.axf" - 0 Error(s), 7 Warning(s).
-Build target 'Flash'
-compiling MainTask.c...
-..\..\emWin\emWinTask\MainTask.c(271): warning:  #177-D: variable "temp" was declared but never referenced
-..\..\emWin\emWinTask\MainTask.c(398): warning:  #177-D: variable "NCode" was declared but never referenced
-..\..\emWin\emWinTask\MainTask.c(398): warning:  #177-D: variable "Id" was declared but never referenced
-..\..\emWin\emWinTask\MainTask.c(452): warning:  #177-D: variable "i" was declared but never referenced
-..\..\emWin\emWinTask\MainTask.c(459): warning:  #177-D: variable "ICONVIEW_HNum" was declared but never referenced
-..\..\emWin\emWinTask\MainTask.c(460): warning:  #177-D: variable "ICONVIEW_VNum" was declared but never referenced
-..\..\emWin\emWinTask\MainTask.c(110): warning:  #177-D: variable "_aBitmapItem" was declared but never referenced
-linking...
-Program Size: Code=209428 RO-data=632912 RW-data=3340 ZI-data=116604  
-FromELF: creating hex file...
-User command #1: CopyHex_Flash.bat
-D:\计件器\SOURCE\ATC\ATC_Delta\Project\MDK-ARM(uV4)>copy Flash\Obj\output.hex ..\output(mdk).hex 
-已复制         1 个文件。
-".\Flash\Obj\output.axf" - 0 Error(s), 7 Warning(s).
-Load "D:\\计件器\\SOURCE\\ATC\\ATC_Delta\\Project\\MDK-ARM(uV4)\\Flash\\Obj\\output.AXF" 
-* JLink Info: Device "STM32F407IG" selected (1024 KB flash, 128 KB RAM).
-Set JLink Project File to "D:\计件器\SOURCE\ATC\ATC_Delta\Project\MDK-ARM(uV4)\JLinkSettings.ini"
- 
-JLink info:
-------------
-DLL: V4.50j, compiled Jun 26 2012 09:19:07
-Firmware: J-Link ARM V8 compiled Jun 19 2012 11:29:30
-Hardware: V8.00
-S/N : 20100213 
-Feature(s) : RDI,FlashDL,FlashBP,JFlash,GDBFULL 
- 
-* JLink Info: Found SWD-DP with ID 0x2BA01477
-* JLink Info: Found SWD-DP with ID 0x2BA01477
-* JLink Info: TPIU fitted.
-* JLink Info: ETM fitted.
-* JLink Info: FPUnit: 6 code (BP) slots and 2 literal slots
-* JLink Info: Found Cortex-M4 r0p1, Little endian.
-ROMTableAddr = 0xE00FF003
- 
-Target info:
-------------
-Device: STM32F407IG
-VTarget = 3.215V
-State of Pins: 
-TCK: 0, TDI: 0, TDO: 0, TMS: 1, TRES: 1, TRST: 1
-Hardware-Breakpoints: 6
-Software-Breakpoints: 8192
-Watchpoints:          4
-JTAG speed: 4000 kHz
- 
-Erase Done.
-Programming Done.
-Verify OK.
-Application running ...
-Build target 'Flash'
-compiling MainTask.c...
-..\..\emWin\emWinTask\MainTask.c(271): warning:  #177-D: variable "temp" was declared but never referenced
-..\..\emWin\emWinTask\MainTask.c(398): warning:  #177-D: variable "NCode" was declared but never referenced
-..\..\emWin\emWinTask\MainTask.c(398): warning:  #177-D: variable "Id" was declared but never referenced
-..\..\emWin\emWinTask\MainTask.c(452): warning:  #177-D: variable "i" was declared but never referenced
-..\..\emWin\emWinTask\MainTask.c(459): warning:  #177-D: variable "ICONVIEW_HNum" was declared but never referenced
-..\..\emWin\emWinTask\MainTask.c(460): warning:  #177-D: variable "ICONVIEW_VNum" was declared but never referenced
-..\..\emWin\emWinTask\MainTask.c(110): warning:  #177-D: variable "_aBitmapItem" was declared but never referenced
-linking...
-Program Size: Code=209420 RO-data=632912 RW-data=3340 ZI-data=116604  
-FromELF: creating hex file...
-User command #1: CopyHex_Flash.bat
-D:\计件器\SOURCE\ATC\ATC_Delta\Project\MDK-ARM(uV4)>copy Flash\Obj\output.hex ..\output(mdk).hex 
-已复制         1 个文件。
-".\Flash\Obj\output.axf" - 0 Error(s), 7 Warning(s).
-Load "D:\\计件器\\SOURCE\\ATC\\ATC_Delta\\Project\\MDK-ARM(uV4)\\Flash\\Obj\\output.AXF" 
-* JLink Info: Device "STM32F407IG" selected (1024 KB flash, 128 KB RAM).
-Set JLink Project File to "D:\计件器\SOURCE\ATC\ATC_Delta\Project\MDK-ARM(uV4)\JLinkSettings.ini"
- 
-JLink info:
-------------
-DLL: V4.50j, compiled Jun 26 2012 09:19:07
-Firmware: J-Link ARM V8 compiled Jun 19 2012 11:29:30
-Hardware: V8.00
-S/N : 20100213 
-Feature(s) : RDI,FlashDL,FlashBP,JFlash,GDBFULL 
- 
-* JLink Info: Found SWD-DP with ID 0x2BA01477
-* JLink Info: Found SWD-DP with ID 0x2BA01477
-* JLink Info: TPIU fitted.
-* JLink Info: ETM fitted.
-* JLink Info: FPUnit: 6 code (BP) slots and 2 literal slots
-* JLink Info: Found Cortex-M4 r0p1, Little endian.
-ROMTableAddr = 0xE00FF003
- 
-Target info:
-------------
-Device: STM32F407IG
-VTarget = 3.215V
-State of Pins: 
-TCK: 0, TDI: 0, TDO: 0, TMS: 1, TRES: 1, TRST: 1
-Hardware-Breakpoints: 6
-Software-Breakpoints: 8192
-Watchpoints:          4
-JTAG speed: 4000 kHz
- 
-Erase Done.
-Programming Done.
-Verify OK.
-Application running ...
-Build target 'Flash'
-compiling MainTask.c...
-..\..\emWin\emWinTask\MainTask.c(271): warning:  #177-D: variable "temp" was declared but never referenced
-..\..\emWin\emWinTask\MainTask.c(398): warning:  #177-D: variable "NCode" was declared but never referenced
-..\..\emWin\emWinTask\MainTask.c(398): warning:  #177-D: variable "Id" was declared but never referenced
-..\..\emWin\emWinTask\MainTask.c(110): warning:  #550-D: variable "_aBitmapItem" was set but never used
-linking...
-Program Size: Code=219224 RO-data=632988 RW-data=3404 ZI-data=116604  
-FromELF: creating hex file...
-User command #1: CopyHex_Flash.bat
-D:\计件器\SOURCE\ATC\ATC_Delta\Project\MDK-ARM(uV4)>copy Flash\Obj\output.hex ..\output(mdk).hex 
-已复制         1 个文件。
-".\Flash\Obj\output.axf" - 0 Error(s), 4 Warning(s).
-Load "D:\\计件器\\SOURCE\\ATC\\ATC_Delta\\Project\\MDK-ARM(uV4)\\Flash\\Obj\\output.AXF" 
-* JLink Info: Device "STM32F407IG" selected (1024 KB flash, 128 KB RAM).
-Set JLink Project File to "D:\计件器\SOURCE\ATC\ATC_Delta\Project\MDK-ARM(uV4)\JLinkSettings.ini"
- 
-JLink info:
-------------
-DLL: V4.50j, compiled Jun 26 2012 09:19:07
-Firmware: J-Link ARM V8 compiled Jun 19 2012 11:29:30
-Hardware: V8.00
-S/N : 20100213 
-Feature(s) : RDI,FlashDL,FlashBP,JFlash,GDBFULL 
- 
-* JLink Info: Found SWD-DP with ID 0x2BA01477
-* JLink Info: Found SWD-DP with ID 0x2BA01477
-* JLink Info: TPIU fitted.
-* JLink Info: ETM fitted.
-* JLink Info: FPUnit: 6 code (BP) slots and 2 literal slots
-* JLink Info: Found Cortex-M4 r0p1, Little endian.
-ROMTableAddr = 0xE00FF003
- 
-Target info:
-------------
-Device: STM32F407IG
-VTarget = 3.215V
-State of Pins: 
-TCK: 0, TDI: 0, TDO: 0, TMS: 1, TRES: 1, TRST: 1
-Hardware-Breakpoints: 6
-Software-Breakpoints: 8192
-Watchpoints:          4
-JTAG speed: 4000 kHz
- 
-Erase Done.
-Programming Done.
-Verify OK.
-Application running ...
-Build target 'Flash'
-compiling MainTask.c...
-..\..\emWin\emWinTask\MainTask.c(271): warning:  #177-D: variable "temp" was declared but never referenced
-..\..\emWin\emWinTask\MainTask.c(398): warning:  #177-D: variable "NCode" was declared but never referenced
-..\..\emWin\emWinTask\MainTask.c(398): warning:  #177-D: variable "Id" was declared but never referenced
-linking...
-Program Size: Code=219620 RO-data=632988 RW-data=3404 ZI-data=116604  
-FromELF: creating hex file...
-User command #1: CopyHex_Flash.bat
-D:\计件器\SOURCE\ATC\ATC_Delta\Project\MDK-ARM(uV4)>copy Flash\Obj\output.hex ..\output(mdk).hex 
-已复制         1 个文件。
-".\Flash\Obj\output.axf" - 0 Error(s), 3 Warning(s).
-Load "D:\\计件器\\SOURCE\\ATC\\ATC_Delta\\Project\\MDK-ARM(uV4)\\Flash\\Obj\\output.AXF" 
-* JLink Info: Device "STM32F407IG" selected (1024 KB flash, 128 KB RAM).
-Set JLink Project File to "D:\计件器\SOURCE\ATC\ATC_Delta\Project\MDK-ARM(uV4)\JLinkSettings.ini"
- 
-JLink info:
-------------
-DLL: V4.50j, compiled Jun 26 2012 09:19:07
-Firmware: J-Link ARM V8 compiled Jun 19 2012 11:29:30
-Hardware: V8.00
-S/N : 20100213 
-Feature(s) : RDI,FlashDL,FlashBP,JFlash,GDBFULL 
- 
-* JLink Info: Found SWD-DP with ID 0x2BA01477
-* JLink Info: Found SWD-DP with ID 0x2BA01477
-* JLink Info: TPIU fitted.
-* JLink Info: ETM fitted.
-* JLink Info: FPUnit: 6 code (BP) slots and 2 literal slots
-* JLink Info: Found Cortex-M4 r0p1, Little endian.
-ROMTableAddr = 0xE00FF003
- 
-Target info:
-------------
-Device: STM32F407IG
-VTarget = 3.215V
-State of Pins: 
-TCK: 0, TDI: 0, TDO: 0, TMS: 1, TRES: 1, TRST: 1
-Hardware-Breakpoints: 6
-Software-Breakpoints: 8192
-Watchpoints:          4
-JTAG speed: 4000 kHz
- 
-Erase Done.
-Programming Done.
-Verify OK.
-Application running ...
-Build target 'Flash'
-compiling MainTask.c...
-..\..\emWin\emWinTask\MainTask.c(271): warning:  #177-D: variable "temp" was declared but never referenced
-..\..\emWin\emWinTask\MainTask.c(398): warning:  #177-D: variable "NCode" was declared but never referenced
-..\..\emWin\emWinTask\MainTask.c(398): warning:  #177-D: variable "Id" was declared but never referenced
-linking...
-Program Size: Code=219620 RO-data=632988 RW-data=3404 ZI-data=116604  
-FromELF: creating hex file...
-User command #1: CopyHex_Flash.bat
-D:\计件器\SOURCE\ATC\ATC_Delta\Project\MDK-ARM(uV4)>copy Flash\Obj\output.hex ..\output(mdk).hex 
-已复制         1 个文件。
-".\Flash\Obj\output.axf" - 0 Error(s), 3 Warning(s).
-Build target 'Flash'
-compiling MainTask.c...
-..\..\emWin\emWinTask\MainTask.c(281): warning:  #177-D: variable "temp" was declared but never referenced
-..\..\emWin\emWinTask\MainTask.c(428): error:  #20: identifier "GUI_FontYahei" is undefined
-..\..\emWin\emWinTask\MainTask.c(431): error:  #20: identifier "bmLogo_armflySmall" is undefined
-..\..\emWin\emWinTask\MainTask.c(437): warning:  #223-D: function "_DrawDownRect" declared implicitly
-..\..\emWin\emWinTask\MainTask.c(437): error:  #20: identifier "FRAME_EFFECT" is undefined
-..\..\emWin\emWinTask\MainTask.c(408): warning:  #177-D: variable "NCode" was declared but never referenced
-..\..\emWin\emWinTask\MainTask.c(408): warning:  #177-D: variable "Id" was declared but never referenced
-..\..\emWin\emWinTask\MainTask.c(477): warning:  #177-D: variable "i" was declared but never referenced
-..\..\emWin\emWinTask\MainTask.c(484): warning:  #177-D: variable "ICONVIEW_HNum" was declared but never referenced
-..\..\emWin\emWinTask\MainTask.c(485): warning:  #177-D: variable "ICONVIEW_VNum" was declared but never referenced
-..\..\emWin\emWinTask\MainTask.c(120): warning:  #177-D: variable "_aBitmapItem" was declared but never referenced
-Target not created
-Build target 'Flash'
-compiling MainTask.c...
-..\..\emWin\emWinTask\MainTask.c(427): error:  #20: identifier "GUI_FontYahei" is undefined
-..\..\emWin\emWinTask\MainTask.c(430): error:  #20: identifier "bmLogo_armflySmall" is undefined
-..\..\emWin\emWinTask\MainTask.c(436): warning:  #223-D: function "_DrawDownRect" declared implicitly
-..\..\emWin\emWinTask\MainTask.c(436): error:  #20: identifier "FRAME_EFFECT" is undefined
-..\..\emWin\emWinTask\MainTask.c(407): warning:  #177-D: variable "NCode" was declared but never referenced
-..\..\emWin\emWinTask\MainTask.c(407): warning:  #177-D: variable "Id" was declared but never referenced
-..\..\emWin\emWinTask\MainTask.c(476): warning:  #177-D: variable "i" was declared but never referenced
-..\..\emWin\emWinTask\MainTask.c(483): warning:  #177-D: variable "ICONVIEW_HNum" was declared but never referenced
-..\..\emWin\emWinTask\MainTask.c(484): warning:  #177-D: variable "ICONVIEW_VNum" was declared but never referenced
-..\..\emWin\emWinTask\MainTask.c(120): warning:  #177-D: variable "_aBitmapItem" was declared but never referenced
-Target not created
-Build target 'Flash'
-compiling MainTask.c...
-..\..\emWin\emWinTask\MainTask.c(430): error:  #20: identifier "bmLogo_armflySmall" is undefined
-..\..\emWin\emWinTask\MainTask.c(436): warning:  #223-D: function "_DrawDownRect" declared implicitly
-..\..\emWin\emWinTask\MainTask.c(436): error:  #20: identifier "FRAME_EFFECT" is undefined
-..\..\emWin\emWinTask\MainTask.c(407): warning:  #177-D: variable "NCode" was declared but never referenced
-..\..\emWin\emWinTask\MainTask.c(407): warning:  #177-D: variable "Id" was declared but never referenced
-..\..\emWin\emWinTask\MainTask.c(476): warning:  #177-D: variable "i" was declared but never referenced
-..\..\emWin\emWinTask\MainTask.c(483): warning:  #177-D: variable "ICONVIEW_HNum" was declared but never referenced
-..\..\emWin\emWinTask\MainTask.c(484): warning:  #177-D: variable "ICONVIEW_VNum" was declared but never referenced
-..\..\emWin\emWinTask\MainTask.c(120): warning:  #177-D: variable "_aBitmapItem" was declared but never referenced
-Target not created
-Build target 'Flash'
-compiling MainTask.c...
-..\..\emWin\emWinTask\MainTask.c(430): error:  #20: identifier "bmLogo_armflySmall" is undefined
-..\..\emWin\emWinTask\MainTask.c(436): warning:  #223-D: function "_DrawDownRect" declared implicitly
-..\..\emWin\emWinTask\MainTask.c(436): error:  #20: identifier "FRAME_EFFECT" is undefined
-..\..\emWin\emWinTask\MainTask.c(407): warning:  #177-D: variable "NCode" was declared but never referenced
-..\..\emWin\emWinTask\MainTask.c(407): warning:  #177-D: variable "Id" was declared but never referenced
-..\..\emWin\emWinTask\MainTask.c(476): warning:  #177-D: variable "i" was declared but never referenced
-..\..\emWin\emWinTask\MainTask.c(483): warning:  #177-D: variable "ICONVIEW_HNum" was declared but never referenced
-..\..\emWin\emWinTask\MainTask.c(484): warning:  #177-D: variable "ICONVIEW_VNum" was declared but never referenced
-..\..\emWin\emWinTask\MainTask.c(120): warning:  #177-D: variable "_aBitmapItem" was declared but never referenced
-compiling Logo_armflySmall.c...
-Target not created
-Build target 'Flash'
-compiling MainTask.c...
-..\..\emWin\emWinTask\MainTask.c(430): error:  #20: identifier "bmLogo_armflySmall" is undefined
-..\..\emWin\emWinTask\MainTask.c(436): warning:  #223-D: function "_DrawDownRect" declared implicitly
-..\..\emWin\emWinTask\MainTask.c(436): error:  #20: identifier "FRAME_EFFECT" is undefined
-..\..\emWin\emWinTask\MainTask.c(407): warning:  #177-D: variable "NCode" was declared but never referenced
-..\..\emWin\emWinTask\MainTask.c(407): warning:  #177-D: variable "Id" was declared but never referenced
-..\..\emWin\emWinTask\MainTask.c(476): warning:  #177-D: variable "i" was declared but never referenced
-..\..\emWin\emWinTask\MainTask.c(483): warning:  #177-D: variable "ICONVIEW_HNum" was declared but never referenced
-..\..\emWin\emWinTask\MainTask.c(484): warning:  #177-D: variable "ICONVIEW_VNum" was declared but never referenced
-..\..\emWin\emWinTask\MainTask.c(120): warning:  #177-D: variable "_aBitmapItem" was declared but never referenced
-Target not created
-Build target 'Flash'
-compiling MainTask.c...
-..\..\emWin\emWinTask\MainTask.c(438): error:  #20: identifier "bmLogo_armflySmall" is undefined
-..\..\emWin\emWinTask\MainTask.c(444): warning:  #223-D: function "_DrawDownRect" declared implicitly
-..\..\emWin\emWinTask\MainTask.c(415): warning:  #177-D: variable "NCode" was declared but never referenced
-..\..\emWin\emWinTask\MainTask.c(415): warning:  #177-D: variable "Id" was declared but never referenced
-..\..\emWin\emWinTask\MainTask.c(484): warning:  #177-D: variable "i" was declared but never referenced
-..\..\emWin\emWinTask\MainTask.c(491): warning:  #177-D: variable "ICONVIEW_HNum" was declared but never referenced
-..\..\emWin\emWinTask\MainTask.c(492): warning:  #177-D: variable "ICONVIEW_VNum" was declared but never referenced
-..\..\emWin\emWinTask\MainTask.c(128): warning:  #177-D: variable "_aBitmapItem" was declared but never referenced
-Target not created
-Build target 'Flash'
-compiling MainTask.c...
-..\..\emWin\emWinTask\MainTask.c(423): warning:  #223-D: function "_DrawDownRectEx" declared implicitly
-..\..\emWin\emWinTask\MainTask.c(459): error:  #20: identifier "bmLogo_armflySmall" is undefined
-..\..\emWin\emWinTask\MainTask.c(436): warning:  #177-D: variable "NCode" was declared but never referenced
-..\..\emWin\emWinTask\MainTask.c(436): warning:  #177-D: variable "Id" was declared but never referenced
-..\..\emWin\emWinTask\MainTask.c(505): warning:  #177-D: variable "i" was declared but never referenced
-..\..\emWin\emWinTask\MainTask.c(512): warning:  #177-D: variable "ICONVIEW_HNum" was declared but never referenced
-..\..\emWin\emWinTask\MainTask.c(513): warning:  #177-D: variable "ICONVIEW_VNum" was declared but never referenced
-..\..\emWin\emWinTask\MainTask.c(128): warning:  #177-D: variable "_aBitmapItem" was declared but never referenced
-Target not created
-Build target 'Flash'
-compiling MainTask.c...
-..\..\emWin\emWinTask\MainTask.c(474): error:  #20: identifier "bmLogo_armflySmall" is undefined
-..\..\emWin\emWinTask\MainTask.c(451): warning:  #177-D: variable "NCode" was declared but never referenced
-..\..\emWin\emWinTask\MainTask.c(451): warning:  #177-D: variable "Id" was declared but never referenced
-..\..\emWin\emWinTask\MainTask.c(520): warning:  #177-D: variable "i" was declared but never referenced
-..\..\emWin\emWinTask\MainTask.c(527): warning:  #177-D: variable "ICONVIEW_HNum" was declared but never referenced
-..\..\emWin\emWinTask\MainTask.c(528): warning:  #177-D: variable "ICONVIEW_VNum" was declared but never referenced
-..\..\emWin\emWinTask\MainTask.c(128): warning:  #177-D: variable "_aBitmapItem" was declared but never referenced
-Target not created
-Build target 'Flash'
-compiling MainTask.c...
-..\..\emWin\emWinTask\MainTask.c(453): warning:  #177-D: variable "NCode" was declared but never referenced
-..\..\emWin\emWinTask\MainTask.c(453): warning:  #177-D: variable "Id" was declared but never referenced
-..\..\emWin\emWinTask\MainTask.c(522): warning:  #177-D: variable "i" was declared but never referenced
-..\..\emWin\emWinTask\MainTask.c(529): warning:  #177-D: variable "ICONVIEW_HNum" was declared but never referenced
-..\..\emWin\emWinTask\MainTask.c(530): warning:  #177-D: variable "ICONVIEW_VNum" was declared but never referenced
-..\..\emWin\emWinTask\MainTask.c(130): warning:  #177-D: variable "_aBitmapItem" was declared but never referenced
-linking...
-Program Size: Code=210960 RO-data=640776 RW-data=3356 ZI-data=116604  
+Program Size: Code=211608 RO-data=640776 RW-data=3364 ZI-data=116604  
 FromELF: creating hex file...
 User command #1: CopyHex_Flash.bat
 D:\计件器\SOURCE\ATC\ATC_Delta\Project\MDK-ARM(uV4)>copy Flash\Obj\output.hex ..\output(mdk).hex 
 已复制         1 个文件。
 ".\Flash\Obj\output.axf" - 0 Error(s), 6 Warning(s).
-Build target 'Flash'
-compiling MainTask.c...
-..\..\emWin\emWinTask\MainTask.c(471): warning:  #177-D: variable "NCode" was declared but never referenced
-..\..\emWin\emWinTask\MainTask.c(471): warning:  #177-D: variable "Id" was declared but never referenced
-..\..\emWin\emWinTask\MainTask.c(539): warning:  #177-D: variable "hWin" was declared but never referenced
-..\..\emWin\emWinTask\MainTask.c(606): error:  #20: identifier "_hLastFrame" is undefined
-..\..\emWin\emWinTask\MainTask.c(601): warning:  #550-D: variable "x" was set but never used
-..\..\emWin\emWinTask\MainTask.c(602): warning:  #550-D: variable "y" was set but never used
-..\..\emWin\emWinTask\MainTask.c(618): warning:  #177-D: variable "i" was declared but never referenced
-..\..\emWin\emWinTask\MainTask.c(625): warning:  #177-D: variable "ICONVIEW_HNum" was declared but never referenced
-..\..\emWin\emWinTask\MainTask.c(626): warning:  #177-D: variable "ICONVIEW_VNum" was declared but never referenced
-..\..\emWin\emWinTask\MainTask.c(130): warning:  #177-D: variable "_aBitmapItem" was declared but never referenced
-Target not created
-Build target 'Flash'
-compiling MainTask.c...
-..\..\emWin\emWinTask\MainTask.c(473): warning:  #177-D: variable "NCode" was declared but never referenced
-..\..\emWin\emWinTask\MainTask.c(473): warning:  #177-D: variable "Id" was declared but never referenced
-..\..\emWin\emWinTask\MainTask.c(541): warning:  #177-D: variable "hWin" was declared but never referenced
-..\..\emWin\emWinTask\MainTask.c(603): warning:  #550-D: variable "x" was set but never used
-..\..\emWin\emWinTask\MainTask.c(604): warning:  #550-D: variable "y" was set but never used
-..\..\emWin\emWinTask\MainTask.c(620): warning:  #177-D: variable "i" was declared but never referenced
-..\..\emWin\emWinTask\MainTask.c(627): warning:  #177-D: variable "ICONVIEW_HNum" was declared but never referenced
-..\..\emWin\emWinTask\MainTask.c(628): warning:  #177-D: variable "ICONVIEW_VNum" was declared but never referenced
-..\..\emWin\emWinTask\MainTask.c(132): warning:  #177-D: variable "_aBitmapItem" was declared but never referenced
-linking...
-Program Size: Code=211240 RO-data=640776 RW-data=3360 ZI-data=116608  
-FromELF: creating hex file...
-User command #1: CopyHex_Flash.bat
-D:\计件器\SOURCE\ATC\ATC_Delta\Project\MDK-ARM(uV4)>copy Flash\Obj\output.hex ..\output(mdk).hex 
-已复制         1 个文件。
-".\Flash\Obj\output.axf" - 0 Error(s), 9 Warning(s).
 Load "D:\\计件器\\SOURCE\\ATC\\ATC_Delta\\Project\\MDK-ARM(uV4)\\Flash\\Obj\\output.AXF" 
 * JLink Info: Device "STM32F407IG" selected (1024 KB flash, 128 KB RAM).
 Set JLink Project File to "D:\计件器\SOURCE\ATC\ATC_Delta\Project\MDK-ARM(uV4)\JLinkSettings.ini"
@@ -655,28 +602,160 @@ Verify OK.
 Application running ...
 Build target 'Flash'
 compiling MainTask.c...
-..\..\emWin\emWinTask\MainTask.c(473): warning:  #177-D: variable "NCode" was declared but never referenced
-..\..\emWin\emWinTask\MainTask.c(473): warning:  #177-D: variable "Id" was declared but never referenced
-..\..\emWin\emWinTask\MainTask.c(541): warning:  #177-D: variable "hWin" was declared but never referenced
-..\..\emWin\emWinTask\MainTask.c(603): warning:  #550-D: variable "x" was set but never used
-..\..\emWin\emWinTask\MainTask.c(604): warning:  #550-D: variable "y" was set but never used
-..\..\emWin\emWinTask\MainTask.c(620): warning:  #177-D: variable "i" was declared but never referenced
-..\..\emWin\emWinTask\MainTask.c(627): warning:  #177-D: variable "ICONVIEW_HNum" was declared but never referenced
-..\..\emWin\emWinTask\MainTask.c(628): warning:  #177-D: variable "ICONVIEW_VNum" was declared but never referenced
-..\..\emWin\emWinTask\MainTask.c(132): warning:  #177-D: variable "_aBitmapItem" was declared but never referenced
+..\..\emWin\emWinTask\MainTask.c(482): warning:  #177-D: variable "NCode" was declared but never referenced
+..\..\emWin\emWinTask\MainTask.c(482): warning:  #177-D: variable "Id" was declared but never referenced
+..\..\emWin\emWinTask\MainTask.c(616): warning:  #223-D: function "_DeleteFrame" declared implicitly
+..\..\emWin\emWinTask\MainTask.c(617): warning:  #223-D: function "_CreateFrame" declared implicitly
+..\..\emWin\emWinTask\MainTask.c(617): error:  #20: identifier "_cbInsertCard" is undefined
+..\..\emWin\emWinTask\MainTask.c(631): error:  #159: declaration is incompatible with previous "_CreateFrame" (declared at line 617)
+..\..\emWin\emWinTask\MainTask.c(662): warning:  #223-D: function "_DrawLogoBox" declared implicitly
+..\..\emWin\emWinTask\MainTask.c(684): error:  #159: declaration is incompatible with previous "_DrawLogoBox" (declared at line 662)
+..\..\emWin\emWinTask\MainTask.c(714): warning:  #177-D: variable "i" was declared but never referenced
+..\..\emWin\emWinTask\MainTask.c(721): warning:  #177-D: variable "ICONVIEW_HNum" was declared but never referenced
+..\..\emWin\emWinTask\MainTask.c(722): warning:  #177-D: variable "ICONVIEW_VNum" was declared but never referenced
+..\..\emWin\emWinTask\MainTask.c(141): warning:  #177-D: variable "_aBitmapItem" was declared but never referenced
+..\..\emWin\emWinTask\MainTask.c(648): warning:  #177-D: function "_cbInsertCard" was declared but never referenced
+..\..\emWin\emWinTask\MainTask.c(684): warning:  #177-D: function "_DrawLogoBox" was declared but never referenced
+Target not created
+Build target 'Flash'
+compiling MainTask.c...
+..\..\emWin\emWinTask\MainTask.c(546): warning:  #177-D: variable "NCode" was declared but never referenced
+..\..\emWin\emWinTask\MainTask.c(546): warning:  #177-D: variable "Id" was declared but never referenced
+..\..\emWin\emWinTask\MainTask.c(680): warning:  #223-D: function "_DeleteFrame" declared implicitly
+..\..\emWin\emWinTask\MainTask.c(681): warning:  #223-D: function "_CreateFrame" declared implicitly
+..\..\emWin\emWinTask\MainTask.c(695): error:  #159: declaration is incompatible with previous "_CreateFrame" (declared at line 681)
+..\..\emWin\emWinTask\MainTask.c(715): warning:  #177-D: variable "i" was declared but never referenced
+..\..\emWin\emWinTask\MainTask.c(722): warning:  #177-D: variable "ICONVIEW_HNum" was declared but never referenced
+..\..\emWin\emWinTask\MainTask.c(723): warning:  #177-D: variable "ICONVIEW_VNum" was declared but never referenced
+..\..\emWin\emWinTask\MainTask.c(141): warning:  #177-D: variable "_aBitmapItem" was declared but never referenced
+Target not created
+Build target 'Flash'
+compiling MainTask.c...
+..\..\emWin\emWinTask\MainTask.c(546): warning:  #177-D: variable "NCode" was declared but never referenced
+..\..\emWin\emWinTask\MainTask.c(546): warning:  #177-D: variable "Id" was declared but never referenced
+..\..\emWin\emWinTask\MainTask.c(680): warning:  #223-D: function "_DeleteFrame" declared implicitly
+..\..\emWin\emWinTask\MainTask.c(681): warning:  #223-D: function "_CreateFrame" declared implicitly
+..\..\emWin\emWinTask\MainTask.c(695): error:  #159: declaration is incompatible with previous "_CreateFrame" (declared at line 681)
+..\..\emWin\emWinTask\MainTask.c(715): warning:  #177-D: variable "i" was declared but never referenced
+..\..\emWin\emWinTask\MainTask.c(722): warning:  #177-D: variable "ICONVIEW_HNum" was declared but never referenced
+..\..\emWin\emWinTask\MainTask.c(723): warning:  #177-D: variable "ICONVIEW_VNum" was declared but never referenced
+..\..\emWin\emWinTask\MainTask.c(141): warning:  #177-D: variable "_aBitmapItem" was declared but never referenced
+Target not created
+Build target 'Flash'
+compiling MainTask.c...
+..\..\emWin\emWinTask\MainTask.c(563): warning:  #177-D: variable "NCode" was declared but never referenced
+..\..\emWin\emWinTask\MainTask.c(563): warning:  #177-D: variable "Id" was declared but never referenced
+..\..\emWin\emWinTask\MainTask.c(697): warning:  #223-D: function "_DeleteFrame" declared implicitly
+..\..\emWin\emWinTask\MainTask.c(715): warning:  #177-D: variable "i" was declared but never referenced
+..\..\emWin\emWinTask\MainTask.c(722): warning:  #177-D: variable "ICONVIEW_HNum" was declared but never referenced
+..\..\emWin\emWinTask\MainTask.c(723): warning:  #177-D: variable "ICONVIEW_VNum" was declared but never referenced
+..\..\emWin\emWinTask\MainTask.c(141): warning:  #177-D: variable "_aBitmapItem" was declared but never referenced
 linking...
-Program Size: Code=211240 RO-data=640776 RW-data=3360 ZI-data=116608  
+.\Flash\Obj\output.axf: Error: L6218E: Undefined symbol _DeleteFrame (referred from maintask.o).
+Target not created
+Build target 'Flash'
+compiling MainTask.c...
+..\..\emWin\emWinTask\MainTask.c(564): warning:  #177-D: variable "NCode" was declared but never referenced
+..\..\emWin\emWinTask\MainTask.c(564): warning:  #177-D: variable "Id" was declared but never referenced
+..\..\emWin\emWinTask\MainTask.c(698): warning:  #223-D: function "_DeleteFrame" declared implicitly
+..\..\emWin\emWinTask\MainTask.c(716): warning:  #177-D: variable "i" was declared but never referenced
+..\..\emWin\emWinTask\MainTask.c(723): warning:  #177-D: variable "ICONVIEW_HNum" was declared but never referenced
+..\..\emWin\emWinTask\MainTask.c(724): warning:  #177-D: variable "ICONVIEW_VNum" was declared but never referenced
+..\..\emWin\emWinTask\MainTask.c(141): warning:  #177-D: variable "_aBitmapItem" was declared but never referenced
+linking...
+.\Flash\Obj\output.axf: Error: L6218E: Undefined symbol _DeleteFrame (referred from maintask.o).
+Target not created
+Build target 'Flash'
+compiling MainTask.c...
+..\..\emWin\emWinTask\MainTask.c(577): warning:  #177-D: variable "NCode" was declared but never referenced
+..\..\emWin\emWinTask\MainTask.c(577): warning:  #177-D: variable "Id" was declared but never referenced
+..\..\emWin\emWinTask\MainTask.c(729): warning:  #177-D: variable "i" was declared but never referenced
+..\..\emWin\emWinTask\MainTask.c(736): warning:  #177-D: variable "ICONVIEW_HNum" was declared but never referenced
+..\..\emWin\emWinTask\MainTask.c(737): warning:  #177-D: variable "ICONVIEW_VNum" was declared but never referenced
+..\..\emWin\emWinTask\MainTask.c(141): warning:  #177-D: variable "_aBitmapItem" was declared but never referenced
+linking...
+Program Size: Code=212048 RO-data=640776 RW-data=3368 ZI-data=116608  
 FromELF: creating hex file...
 User command #1: CopyHex_Flash.bat
 D:\计件器\SOURCE\ATC\ATC_Delta\Project\MDK-ARM(uV4)>copy Flash\Obj\output.hex ..\output(mdk).hex 
 已复制         1 个文件。
-".\Flash\Obj\output.axf" - 0 Error(s), 9 Warning(s).
+".\Flash\Obj\output.axf" - 0 Error(s), 6 Warning(s).
+Load "D:\\计件器\\SOURCE\\ATC\\ATC_Delta\\Project\\MDK-ARM(uV4)\\Flash\\Obj\\output.AXF" 
+* JLink Info: Device "STM32F407IG" selected (1024 KB flash, 128 KB RAM).
+Set JLink Project File to "D:\计件器\SOURCE\ATC\ATC_Delta\Project\MDK-ARM(uV4)\JLinkSettings.ini"
+ 
+JLink info:
+------------
+DLL: V4.50j, compiled Jun 26 2012 09:19:07
+Firmware: J-Link ARM V8 compiled Jun 19 2012 11:29:30
+Hardware: V8.00
+S/N : 20100213 
+Feature(s) : RDI,FlashDL,FlashBP,JFlash,GDBFULL 
+ 
+* JLink Info: Found SWD-DP with ID 0x2BA01477
+* JLink Info: Found SWD-DP with ID 0x2BA01477
+* JLink Info: TPIU fitted.
+* JLink Info: ETM fitted.
+* JLink Info: FPUnit: 6 code (BP) slots and 2 literal slots
+* JLink Info: Found Cortex-M4 r0p1, Little endian.
+ROMTableAddr = 0xE00FF003
+ 
+Target info:
+------------
+Device: STM32F407IG
+VTarget = 3.215V
+State of Pins: 
+TCK: 0, TDI: 0, TDO: 0, TMS: 1, TRES: 1, TRST: 1
+Hardware-Breakpoints: 6
+Software-Breakpoints: 8192
+Watchpoints:          4
+JTAG speed: 4000 kHz
+ 
+Erase Done.
+Programming Done.
+Verify OK.
+Application running ...
 Build target 'Flash'
-compiling Logo_DeltaSmall.c...
+compiling main.c...
 linking...
-Program Size: Code=211240 RO-data=640776 RW-data=3360 ZI-data=116608  
+Program Size: Code=212048 RO-data=640776 RW-data=3368 ZI-data=116608  
 FromELF: creating hex file...
 User command #1: CopyHex_Flash.bat
 D:\计件器\SOURCE\ATC\ATC_Delta\Project\MDK-ARM(uV4)>copy Flash\Obj\output.hex ..\output(mdk).hex 
 已复制         1 个文件。
 ".\Flash\Obj\output.axf" - 0 Error(s), 0 Warning(s).
+Load "D:\\计件器\\SOURCE\\ATC\\ATC_Delta\\Project\\MDK-ARM(uV4)\\Flash\\Obj\\output.AXF" 
+* JLink Info: Device "STM32F407IG" selected (1024 KB flash, 128 KB RAM).
+Set JLink Project File to "D:\计件器\SOURCE\ATC\ATC_Delta\Project\MDK-ARM(uV4)\JLinkSettings.ini"
+ 
+JLink info:
+------------
+DLL: V4.50j, compiled Jun 26 2012 09:19:07
+Firmware: J-Link ARM V8 compiled Jun 19 2012 11:29:30
+Hardware: V8.00
+S/N : 20100213 
+Feature(s) : RDI,FlashDL,FlashBP,JFlash,GDBFULL 
+ 
+* JLink Info: Found SWD-DP with ID 0x2BA01477
+* JLink Info: Found SWD-DP with ID 0x2BA01477
+* JLink Info: TPIU fitted.
+* JLink Info: ETM fitted.
+* JLink Info: FPUnit: 6 code (BP) slots and 2 literal slots
+* JLink Info: Found Cortex-M4 r0p1, Little endian.
+ROMTableAddr = 0xE00FF003
+ 
+Target info:
+------------
+Device: STM32F407IG
+VTarget = 3.215V
+State of Pins: 
+TCK: 0, TDI: 0, TDO: 0, TMS: 1, TRES: 1, TRST: 1
+Hardware-Breakpoints: 6
+Software-Breakpoints: 8192
+Watchpoints:          4
+JTAG speed: 4000 kHz
+ 
+Erase Done.
+Programming Done.
+Verify OK.
+Application running ...
