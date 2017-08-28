@@ -3,26 +3,26 @@
 *	                                  
 *	Ä£¿éÃû³Æ : GUI½çÃæÖ÷º¯Êı
 *	ÎÄ¼şÃû³Æ : MainTask.c
-*	°æ    ±¾ : V1.2d
-*	Ëµ    Ã÷ : ×ÛºÏÊµÀıÖ÷½çÃæÉè¼Æ
+*	°E   ±¾ : V1.2d
+*	Ëµ    ÃE: ×ÛºÏÊµÀıÖ÷½çÃæÉè¼Æ
 *	ĞŞ¸Ä¼ÇÂ¼ :
-*		°æ±¾ºÅ    ÈÕÆÚ          ×÷Õß        ËµÃ÷
+*		°æ±¾ºÅ    ÈÕÆÚ          ×÷Õß        ËµÃE
 *		v1.0    2013-04-26    Eric2013      Ê×·¢
-*       v1.1    2014-05-23    Eric2013      1. ¸ü¸ÄÖ÷½çÃæÍ¬Ê±Ö§³Ö4.3´ç£¬5´çºÍ7´çÆÁµÄÏÔÊ¾
-*                                           2. ÔİÊ±É¾³ı¶¯Ì¬LOGOµÄÏÔÊ¾£¬ºóÃæ°æ±¾ÔÙ¼ÓÈë
-*       V1.2    2014-07-19    Eric2013      1. ½â¾öICON¿Ø¼şĞèÒªµã»÷Á½´Î²Å¿ÉÒÔ½øÈëµÄÎÊÌâ¡£
-*                                           2. É¾³ıFLASHµÄ½çÃæºÍ´¥ÃşĞ£×¼½çÃæ
+*       v1.1    2014-05-23    Eric2013      1. ¸EÄÖ÷½çÃæÍ¬Ê±Ö§³Ö4.3´ç£¬5´çºÍ7´çÆÁµÄÏÔÊ¾
+*                                           2. ÔİÊ±É¾³ı¶¯Ì¬LOGOµÄÏÔÊ¾£¬ºóÃæ°æ±¾ÔÙ¼ÓÈE
+*       V1.2    2014-07-19    Eric2013      1. ½â¾öICON¿Ø¼şĞèÒªµã»÷Á½´Î²Å¿ÉÒÔ½øÈEÄÎÊÌâ¡£
+*                                           2. É¾³ıFLASHµÄ½çÃæºÍ´¥ÃşĞ£×¼½çÃE
 *       V1.2b   2014-12-05    Eric2013      1. ÔİÊ±É¾³ı±³¾°Í¼Æ¬µÄÏÔÊ¾
-*                                           2. ¼ÓÈëËÄµã´¥ÃşĞ£×¼
+*                                           2. ¼ÓÈEÄµã´¥ÃşĞ£×¼
 *       V1.2c   2015-05-10 	  Eric2013      1. Éı¼¶¹Ì¼ş¿âµ½V1.5.0
-*       								    2. Éı¼¶BSP°å¼¶Ö§³Ö°ü 
+*       								    2. Éı¼¶BSP°å¼¶Ö§³Ö°E
 *      									    3. Éı¼¶fatfsµ½0.11
 *       								    4. Éı¼¶STemWinµ½5.26
-*       								    5. Ìí¼Ó7´ç800*480·Ö±æÂÊµçÈİÆÁÖ§³Ö£¬Ìí¼Ó3.5´ç480*320µÄILI9488Ö§³Ö¡£
-*      									    6. ÔÚÓ¦ÓÃApp_FileBrowseÖĞÍ¨¹ıº¯ÊıCHOOSEFILE_SetButtonTextĞŞ¸Ä°´¼ü´óĞ¡£¬ÒÔ±ãµçÈİ´¥ÃşÆÁ¿ÉÒÔµã»÷µ½¡£
-*	    V1.2d  2015-12-18  Eric2013         1. Éı¼¶BSP°å¼¶Ö§³Ö°ü 
+*       								    5. ÌúØÓ7´E00*480·Ö±æÂÊµçÈİÆÁÖ§³Ö£¬ÌúØÓ3.5´E80*320µÄILI9488Ö§³Ö¡£
+*      									    6. ÔÚÓ¦ÓÃApp_FileBrowseÖĞÍ¨¹ıº¯ÊıCHOOSEFILE_SetButtonTextĞŞ¸Ä°´¼EóĞ¡£¬ÒÔ±ãµçÈİ´¥ÃşÆÁ¿ÉÒÔµã»÷µ½¡£
+*	    V1.2d  2015-12-18  Eric2013         1. Éı¼¶BSP°å¼¶Ö§³Ö°E
 *                                           2. Éı¼¶STemWinµ½5.28
-*                                           3. Ìí¼Ó4.3´çºÍ5´çµçÈİÆÁÖ§³Ö¡£       
+*                                           3. ÌúØÓ4.3´çºÍ5´çµçÈİÆÁÖ§³Ö¡£       
 *	
 *	Copyright (C), 2015-2020, °²¸»À³µç×Ó www.armfly.com
 *
@@ -33,28 +33,28 @@
 
 /*
 *********************************************************************************************************
-*                                         ºê¶¨Òå 
+*                                         ºE¨ÒE
 *********************************************************************************************************
 */ 
-#define ICONVIEW_TBorder   10   /* ¿Ø¼şICONVIEWµÄÉÏ±ß¾à */
-#define ICONVIEW_LBorder   10   /* ¿Ø¼şICONVIEWµÄ×ó±ß¾à */
-#define ICONVIEW_RBorder   10   /* ¿Ø¼şICONVIEWµÄÓÒ±ß¾à */
-#define ICONVIEW_BBorder   36   /* ¿Ø¼şICONVIEWµÄÏÂ±ß¾à */   
-#define ICONVIEW_Width     70   /* ¿Ø¼şICONVIEWµÄ¿í */  
-#define ICONVIEW_Height    85   /* ¿Ø¼şICONVIEWµÄ¸ß£¬°üÀ¨Í¼±êµÄY·½Ïò¼ä¾à */  
-#define ICONVIEW_YSpace    5    /* ¿Ø¼şICONVIEWµÄY·½Ïò¼ä¾à */  
-#define ICONVIEW_ImagNum   20   /* ¿Ø¼şICONVIEWÖĞµÄÍ¼±ê¸öÊı */ 
+#define ICONVIEW_TBorder   10   /* ¿Ø¼şICONVIEWµÄÉÏ±ß¾E*/
+#define ICONVIEW_LBorder   10   /* ¿Ø¼şICONVIEWµÄ×ó±ß¾E*/
+#define ICONVIEW_RBorder   10   /* ¿Ø¼şICONVIEWµÄÓÒ±ß¾E*/
+#define ICONVIEW_BBorder   36   /* ¿Ø¼şICONVIEWµÄÏÂ±ß¾E*/   
+#define ICONVIEW_Width     70   /* ¿Ø¼şICONVIEWµÄ¿E*/  
+#define ICONVIEW_Height    85   /* ¿Ø¼şICONVIEWµÄ¸ß£¬°E¨Í¼±EÄY·½Ïò¼ä¾E*/  
+#define ICONVIEW_YSpace    5    /* ¿Ø¼şICONVIEWµÄY·½Ïò¼ä¾E*/  
+#define ICONVIEW_ImagNum   20   /* ¿Ø¼şICONVIEWÖĞµÄÍ¼±EöÊı */ 
 
-#define Imag_LBorder     2   /* Í¼±êµÄ×ó±ß¾à */
-#define Imag_TBorder     2   /* Í¼±êµÄÉÏ±ß¾à */
-#define Time_Width       90  /* ÏÔÊ¾Ê±¼äµÄ¿í¶È */
-#define ImagStart_Width  40  /* ¿ªÊ¼Í¼±êµÄ¿í¶È */
-#define ImagSpeak_Width  40  /* ÒôÁ¿Í¼±êµÄ¿í¶È */
-#define ImagSignal_Width 40  /* ĞÅºÅÍ¼±êµÄ¿í¶È */
-#define ImagTime_Width   210 /* ÉÏÃæ¿ªÊ¼Í¼±ê£¬ÒôÁ¿Í¼±ê£¬ĞÅºÅÍ¼±êÒÔ¼°Ê±¼äÏÔÊ¾µÄ×Ü¿í¶È40+40+40+90=210*/
+#define Imag_LBorder     2   /* Í¼±EÄ×ó±ß¾E*/
+#define Imag_TBorder     2   /* Í¼±EÄÉÏ±ß¾E*/
+#define Time_Width       90  /* ÏÔÊ¾Ê±¼äµÄ¿úÒÈ */
+#define ImagStart_Width  40  /* ¿ªÊ¼Í¼±EÄ¿úÒÈ */
+#define ImagSpeak_Width  40  /* ÒôÁ¿Í¼±EÄ¿úÒÈ */
+#define ImagSignal_Width 40  /* ĞÅºÅÍ¼±EÄ¿úÒÈ */
+#define ImagTime_Width   210 /* ÉÏÃæ¿ªÊ¼Í¼±ê£¬ÒôÁ¿Í¼±ê£¬ĞÅºÅÍ¼±EÔ¼°Ê±¼äÏÔÊ¾µÄ×Ü¿úÒÈ40+40+40+90=210*/
 
-#define Time_Line1   1   /* µÚÒ»ĞĞÊ±¼äÏÔÊ¾µÄY×ø±ê */
-#define Time_Line2   17  /* µÚ¶şĞĞÊ±¼äÏÔÊ¾µÄY×ø±ê */
+#define Time_Line1   1   /* µÚÒ»ĞĞÊ±¼äÏÔÊ¾µÄY×ø±E*/
+#define Time_Line2   17  /* µÚ¶şĞĞÊ±¼äÏÔÊ¾µÄY×ø±E*/
 #define Time_Height  16  /* Ê±¼äÏÔÊ¾µÄ¸ß¶È */
 /*
  * tupelo added
@@ -93,9 +93,9 @@ static WM_HWIN    _hTitlePic;
 *                                      ±äÁ¿
 *********************************************************************************************************
 */ 
-WM_HWIN hWin;           /* ICONVIEWµÄ¾ä±ú */
-WM_HWIN hWinTaskBar;    /* ÈÎÎñÀ¸¾ä±ú */
-uint8_t OnICON0  = 0;   /* ICONVIEW¿Ø¼ş°´ÏÂµÄ±êÖ¾£¬0±íÊ¾Î´°´ÏÂ£¬1±íÊ¾°´ÏÂ */
+WM_HWIN hWin;           /* ICONVIEWµÄ¾ä±E*/
+WM_HWIN hWinTaskBar;    /* ÈÎÎñÀ¸¾ä±E*/
+uint8_t OnICON0  = 0;   /* ICONVIEW¿Ø¼ş°´ÏÂµÄ±E¾£¬0±úæ¾Î´°´ÏÂ£¬1±úæ¾°´ÏÂ */
 uint8_t OnICON00 = 0;
 uint8_t OnICON1  = 0;
 uint8_t OnICON2  = 0;
@@ -131,13 +131,13 @@ const char ucWeekDay[7][3] =
 	"Sun"
 };
 
-/* ÓÃÓÚ×ÀÃæICONVIEWÍ¼±êµÄ´´½¨ */
+/* ÓÃÓÚ×ÀÃæICONVIEWÍ¼±EÄ´´½¨ */
 typedef struct {
   const GUI_BITMAP * pBitmap;
   const char       * pText;
 } BITMAP_ITEM;
 
-/* ÓÃÓÚ×ÀÃæICONVIEWÍ¼±êµÄ´´½¨ */
+/* ÓÃÓÚ×ÀÃæICONVIEWÍ¼±EÄ´´½¨ */
 static const BITMAP_ITEM _aBitmapItem[] = {
   {&bmComputer, "Computer"},
   {&bmSettings,  "Settings"},
@@ -167,7 +167,7 @@ static const BITMAP_ITEM _aBitmapItem[] = {
 
 /*
 *********************************************************************************************************
-*				                         ¶Ô»°¿ò³õÊ¼»¯Ñ¡Ïî
+*				                         ¶Ô»°¿ò³õÊ¼»¯Ñ¡ÏE
 *********************************************************************************************************
 */
 static const GUI_WIDGET_CREATE_INFO _aDialogCreateMain[] = {
@@ -180,15 +180,15 @@ static const GUI_WIDGET_CREATE_INFO _aDialogCreateMain[] = {
 
 /*
 *********************************************************************************************************
-*	º¯ Êı Ãû: File_Init
-*	¹¦ÄÜËµÃ÷: ÎÄ¼şÏµÍ³³õÊ¼»¯
+*	º¯ Êı ÃE File_Init
+*	¹¦ÄÜËµÃE ÎÄ¼şÏµÍ³³õÊ¼»¯
 *	ĞÎ    ²Î£ºÎŞ
 *	·µ »Ø Öµ: ÎŞ
 *********************************************************************************************************
 */
 static void File_Init(void)
 {
-	/* ·½±ãÒÔºóĞŞ¸ÄÍ¼±êµÄÎ»ÖÃ */
+	/* ·½±ãÒÔºóĞŞ¸ÄÍ¼±EÄÎ»ÖÃ */
 	 /* ³õÊ¼»¯UÅÌ */
     #ifdef USE_USB_OTG_FS
 		USBH_Init(&USB_OTG_Core,
@@ -225,9 +225,9 @@ static void File_Init(void)
 
 /*
 *********************************************************************************************************
-*	º¯ Êı Ãû: Caculate_RTC
-*	¹¦ÄÜËµÃ÷: ÏÔÊ¾RTCÊ±¼ä
-*	ĞÎ    ²Î£ºpMsg Ö¸Õë²ÎÊı            
+*	º¯ Êı ÃE Caculate_RTC
+*	¹¦ÄÜËµÃE ÏÔÊ¾RTCÊ±¼E
+*	ĞÎ    ²Î£ºpMsg Ö¸ÕEÎÊı            
 *	·µ »Ø Öµ: ÎŞ
 *********************************************************************************************************
 */
@@ -260,9 +260,9 @@ static void Caculate_RTC(WM_MESSAGE * pMsg)
 
 /*
 *********************************************************************************************************
-*	º¯ Êı Ãû: PaintDialogMain
-*	¹¦ÄÜËµÃ÷: ÈÎÎñÀ¸µÄÖØ»æº¯Êı 
-*	ĞÎ    ²Î£ºpMsg Ö¸Õë²ÎÊı
+*	º¯ Êı ÃE PaintDialogMain
+*	¹¦ÄÜËµÃE ÈÎÎñÀ¸µÄÖØ»æº¯Êı 
+*	ĞÎ    ²Î£ºpMsg Ö¸ÕEÎÊı
 *	·µ »Ø Öµ: ÎŞ
 *********************************************************************************************************
 */
@@ -271,17 +271,17 @@ void PaintDialogMain(WM_MESSAGE * pMsg)
 	GUI_SetBkColor(GUI_WHITE); 
     GUI_Clear(); 
 	
-	/* »æÖÆÆô¶¯Ğ¡Í¼±ê */
+	/* »æÖÆÆô¶¯Ğ¡Í¼±E*/
 	GUI_DrawBitmap(&bmStart, 
 	               Imag_LBorder, 
 	               Imag_TBorder);
 	
-	/* »æÖÆÀ®°ÈĞ¡Í¼±ê */
+	/* »æÖÆÀ®°ÈĞ¡Í¼±E*/
 	GUI_DrawBitmap(&bmSpeaker, 
 	               LCD_GetXSize() - Time_Width - ImagSpeak_Width + Imag_LBorder, 
 	               Imag_TBorder);
 	
-	/* »æÖÆĞÅºÅĞ¡Í¼±ê */
+	/* »æÖÆĞÅºÅĞ¡Í¼±E*/
 	GUI_DrawBitmap(&bmsignal, 
 	               LCD_GetXSize() - Time_Width - ImagSpeak_Width - ImagSignal_Width  + Imag_LBorder, 
 	               Imag_TBorder);	
@@ -289,8 +289,8 @@ void PaintDialogMain(WM_MESSAGE * pMsg)
 
 /*
 *********************************************************************************************************
-*	º¯ Êı Ãû: InitDialogMain
-*	¹¦ÄÜËµÃ÷: ¶Ô»°¿ò³õÊ¼»¯
+*	º¯ Êı ÃE InitDialogMain
+*	¹¦ÄÜËµÃE ¶Ô»°¿ò³õÊ¼»¯
 *	ĞÎ    ²Î£ºpMsg
 *	·µ »Ø Öµ: ÎŞ
 *********************************************************************************************************
@@ -352,8 +352,8 @@ void InitDialogMain(WM_MESSAGE * pMsg)
 
 /*
 *********************************************************************************************************
-*	º¯ Êı Ãû: _cbCallbackMain
-*	¹¦ÄÜËµÃ÷: »Øµ÷º¯Êı 
+*	º¯ Êı ÃE _cbCallbackMain
+*	¹¦ÄÜËµÃE »Øµ÷º¯Êı 
 *	ĞÎ    ²Î£ºpMsg
 *	·µ »Ø Öµ: ÎŞ
 *********************************************************************************************************
@@ -415,9 +415,9 @@ static void _cbCallbackMain(WM_MESSAGE * pMsg)
 }
 /*
 *********************************************************************************************************
-*	º¯ Êı Ãû: _DrawDownRectEx
-*	¹¦ÄÜËµÃ÷: ÏÔÊ¾°¼ÏİµÄ¾ØĞÎ¿ò
-*	ĞÎ    ²Î£ºpEffect  ¿Ø¼şÏÔÊ¾Ğ§¹û
+*	º¯ Êı ÃE _DrawDownRectEx
+*	¹¦ÄÜËµÃE ÏÔÊ¾°¼ÏİµÄ¾ØĞÎ¿E
+*	ĞÎ    ²Î£ºpEffect  ¿Ø¼şÏÔÊ¾Ğ§¹E
 *             pRect    GUI_RECTÀàĞÍ±äÁ¿µØÖ·
 *	·µ »Ø Öµ: ÎŞ
 *********************************************************************************************************
@@ -430,13 +430,13 @@ static void _DrawDownRectEx(const WIDGET_EFFECT* pEffect, const GUI_RECT* pRect)
 }
 /*
 *********************************************************************************************************
-*	º¯ Êı Ãû: _DrawDownRect
-*	¹¦ÄÜËµÃ÷: ÏÔÊ¾°¼ÏİµÄ¾ØĞÎ¿ò
-*	ĞÎ    ²Î£ºpEffect  ¿Ø¼şÏÔÊ¾Ğ§¹û
-*             x0       ÆğÊ¼xÖá×ø±ê
-*             y0       ÆğÊ¼yÖá×ø±ê
-*             x1       ½áÊøxÖá×ø±ê
-*             y1       ½áÊøyÖá×ø±ê
+*	º¯ Êı ÃE _DrawDownRect
+*	¹¦ÄÜËµÃE ÏÔÊ¾°¼ÏİµÄ¾ØĞÎ¿E
+*	ĞÎ    ²Î£ºpEffect  ¿Ø¼şÏÔÊ¾Ğ§¹E
+*             x0       ÆğÊ¼xÖá×ø±E
+*             y0       ÆğÊ¼yÖá×ø±E
+*             x1       ½áÊøxÖá×ø±E
+*             y1       ½áÊøyÖá×ø±E
 *	·µ »Ø Öµ: ÎŞ
 *********************************************************************************************************
 */
@@ -453,8 +453,8 @@ static void _DrawDownRect(const WIDGET_EFFECT* pEffect, int x0, int y0, int x1, 
 
 /*
 *********************************************************************************************************
-*	º¯ Êı Ãû: _DrawLogoBox
-*	¹¦ÄÜËµÃ÷: Ğ¡¼üÅÌµÄ»Øµ÷º¯Êı
+*	º¯ Êı ÃE _DrawLogoBox
+*	¹¦ÄÜËµÃE Ğ¡¼EÌµÄ»Øµ÷º¯Êı
 *	ĞÎ    ²Î£ºIndex     ÒªÏÔÊ¾µÄÎ»Í¼ĞòºÅ
 *             pBitmap   Î»Í¼µØÖ·
 *	·µ »Ø Öµ: ÎŞ
@@ -481,8 +481,8 @@ static void _DrawLogoBox(int Index, const GUI_BITMAP GUI_UNI_PTR* pBitmap)
 }
 /*
 *********************************************************************************************************
-*	º¯ Êı Ãû: _PaintFrame
-*	¹¦ÄÜËµÃ÷: ¿ò¼Ü´°¿ÚµÄÖØ»æº¯Êı
+*	º¯ Êı ÃE _PaintFrame
+*	¹¦ÄÜËµÃE ¿ò¼Ü´°¿ÚµÄÖØ»æº¯Êı
 *	ĞÎ    ²Î£ºÎŞ
 *	·µ »Ø Öµ: ÎŞ
 *********************************************************************************************************
@@ -499,8 +499,8 @@ static void _PaintFrame(void)
 }
 /*
 *********************************************************************************************************
-*	º¯ Êı Ãû: _CreateFrame
-*	¹¦ÄÜËµÃ÷: ´´½¨¿ò¼Ü´°¿Ú
+*	º¯ Êı ÃE _CreateFrame
+*	¹¦ÄÜËµÃE ´´½¨¿ò¼Ü´°¿Ú
 *	ĞÎ    ²Î£ºcb  »Øµ÷º¯ÊıµØÖ·
 *	·µ »Ø Öµ: ÎŞ
 *********************************************************************************************************
@@ -516,8 +516,8 @@ static WM_HWIN _CreateFrame(WM_CALLBACK* cb)
 }
 /*
 *********************************************************************************************************
-*	º¯ Êı Ãû: _DeleteFrame
-*	¹¦ÄÜËµÃ÷: É¾³ı´´½¨µÄ¿ò¼Ü´°¿Ú
+*	º¯ Êı ÃE _DeleteFrame
+*	¹¦ÄÜËµÃE É¾³ı´´½¨µÄ¿ò¼Ü´°¿Ú
 *	ĞÎ    ²Î£ºÎŞ
 *	·µ »Ø Öµ: ÎŞ
 *********************************************************************************************************
@@ -529,9 +529,9 @@ static void _DeleteFrame(void)
 }
 /*
 *********************************************************************************************************
-*	º¯ Êı Ãû: _cbInsertCard
-*	¹¦ÄÜËµÃ÷: µÚ¶ş¸ö½çÃæ£¬µÈ´ıÓÃ»§²åÈëÒøĞĞ¿¨
-*	ĞÎ    ²Î£ºpMsg  ²ÎÊıÖ¸Õë
+*	º¯ Êı ÃE _cbInsertCard
+*	¹¦ÄÜËµÃE µÚ¶ş¸ö½çÃæ£¬µÈ´ıÓÃ»§²åÈEøĞĞ¿¨
+*	ĞÎ    ²Î£ºpMsg  ²ÎÊıÖ¸ÕE
 *	·µ »Ø Öµ: ÎŞ
 *********************************************************************************************************
 */
@@ -565,8 +565,8 @@ static void _cbInsertCard(WM_MESSAGE* pMsg)
 
 /*
 *********************************************************************************************************
-*	º¯ Êı Ãû: _cbBkWindow
-*	¹¦ÄÜËµÃ÷: ×ÀÃæ´°¿ÚµÄ»Øµ÷º¯Êı 
+*	º¯ Êı ÃE _cbBkWindow
+*	¹¦ÄÜËµÃE ×ÀÃæ´°¿ÚµÄ»Øµ÷º¯Êı 
 *	ĞÎ    ²Î£ºWM_MESSAGE * pMsg
 *	·µ »Ø Öµ: ÎŞ
 *********************************************************************************************************
@@ -606,53 +606,27 @@ void _cbBkWindow(WM_MESSAGE * pMsg)
 				y = MAIN_LOGO_OFFSET_Y + ((MAIN_TITLE_HEIGHT - MAIN_LOGO_BITMAP->YSize) >> 1);
 				GUI_DrawBitmap(MAIN_LOGO_BITMAP, x, y);
                 
-                /* ÉèÖÃ±êÌâ */
-//                 _hTitle = TEXT_CreateEx(0, 5, LCD_GetXSize(), 32, WM_HBKWIN, WM_CF_SHOW, 0, GUI_ID_TEXT0, "×Ô¶¯¼ÆÊıÆ÷");
-//                 TEXT_SetTextAlign(_hTitle, GUI_TA_HCENTER);
-//                 TEXT_SetFont(_hTitle, MAIN_FONT);
-                
 				x = MAIN_BORDER;
 				y = MAIN_TITLE_HEIGHT;
 				w = LCD_GetXSize() - (MAIN_BORDER * 2);
 				h = LCD_GetYSize()  - (MAIN_BORDER + MAIN_TITLE_HEIGHT);
 				_DrawDownRect(FRAME_EFFECT, x, y, x + w - 1, y + h - 1);
-			}
-// 			if(g_LcdWidth == 800)
-// 			{
-// 				if(prevent_refresh == 0)
-// 				{ 
-// 					GUI_SetBkColor(GUI_BLUE);
-// 					GUI_Clear();
-// 					GUI_SetFont(&GUI_FontHZ_SimSun_16);
-// 					GUI_SetColor(GUI_WHITE);
-// 	 				GUI_DispStringHCenterAt("°´¼üK2ÓÃÓÚ´¥ÃşĞ£×¼,µçÈİÆÁÎŞĞèĞ£×¼", LCD_GetXSize()/2, LCD_GetYSize() - 54);
-// 					prevent_refresh = 1;
-// 				}	
-// 			}
-// 			else
-// 			{
-// 				GUI_SetBkColor(GUI_BLUE);
-// 				GUI_Clear();
-// 				GUI_SetFont(&GUI_FontHZ_SimSun_16);
-// 				GUI_SetColor(GUI_WHITE);
-// 				GUI_DispStringHCenterAt("°´¼üK2ÓÃÓÚ´¥ÃşĞ£×¼,µçÈİÆÁÎŞĞèĞ£×¼", LCD_GetXSize()/2, LCD_GetYSize() - 54);
-// 			}		
+			}		
 		break;
 			
 	 default:
 		WM_DefaultProc(pMsg);
-		break;
 	}
 }
 /*
 *********************************************************************************************************
-*	º¯ Êı Ãû: _cbLanguage
-*	¹¦ÄÜËµÃ÷: µÚÒ»¸ö½çÃæ£¬ÓÃÓÚÖĞÎÄºÍÓ¢ÓïµÄÑ¡Ôñ
-*	ĞÎ    ²Î£ºpMsg  ²ÎÊıÖ¸Õë
+*	º¯ Êı ÃE  _cbMainGUI
+*	¹¦ÄÜËµÃE  Ö÷½çÃæ£¬ÓÃÓÚÏÔÊ¾¹¤³§³µ¼äĞÅÏ¢£¬Á÷Ë®ÏßĞÅÏ¢£¬¶©µ¥ĞÅÏ¢£¬ºÍ¹¤ÈËĞÅÏ¢
+*	ĞÎ    ²Î£º pMsg  ²ÎÊıÖ¸ÕE
 *	·µ »Ø Öµ: ÎŞ
 *********************************************************************************************************
 */
-static void _cbLanguage(WM_MESSAGE* pMsg) 
+static void _cbMainGUI(WM_MESSAGE* pMsg) 
 {
 	WM_HWIN hWin = pMsg->hWin;
 	switch (pMsg->MsgId) 
@@ -661,56 +635,23 @@ static void _cbLanguage(WM_MESSAGE* pMsg)
 			/* ÉèÖÃ¾Û½¹ */
 			WM_SetFocus(hWin);
         
-            _hTitle = TEXT_CreateEx(0, 5, LCD_GetXSize(), 32, WM_HBKWIN, WM_CF_SHOW, 0, GUI_ID_TEXT0, "×Ô¶¯¼ÆÊıÆ÷");
+            _hTitle = TEXT_CreateEx(0, 5, LCD_GetXSize(), 32, WM_HBKWIN, WM_CF_SHOW, 0, GUI_ID_TEXT0, "×Ô¶¯¼ÆÊıÆE);
             TEXT_SetTextAlign(_hTitle, GUI_TA_HCENTER);
             TEXT_SetFont(_hTitle, MAIN_FONT);
 			break;
-		 case WM_KEY:
-//             switch (((WM_KEY_INFO*)(pMsg->Data.p))->Key) 
-//             { 
-// 				case GUI_KEY_ESCAPE:
-//                     GUI_EndDialog(hWin, 1);
-//                     break;
-// 				case GUI_KEY_TAB:
-// 					WM_SetFocusOnNextChild(hWin);
-// 					break;
-//             }
-            break;
+		case WM_KEY:
+            // nothing;
+        break;
 		case WM_PAINT:
 			_PaintFrame(); 
-
-		    GUI_DispStringHCenterAt("ÇëÑ¡ÔñÓïÑÔ", FRAME_WIDTH >> 1, 5);
+            GUI_DispStringHCenterAt("ÇE¡ÔñÓEÔ", FRAME_WIDTH >> 1, 5);
 			GUI_DispStringHCenterAt("Please select your language", FRAME_WIDTH >> 1, 32);
 			break;
 		case WM_NOTIFY_PARENT:
-// 			if (pMsg->Data.v == WM_NOTIFICATION_RELEASED) 
-// 			{
-// 				int Id = WM_GetId(pMsg->hWinSrc);
-// 				switch (Id) 
-// 				{
-// 					case GUI_ID_BUTTON0:
-// 						_Language = 0;
-// 						break;
-// 					case GUI_ID_BUTTON1:
-// 						_Language = 1;
-// 						break;
-// 				}
-// 				/* ´´½¨±êÌâ£¬¾ÓÖĞÏÔÊ¾ */
-// 				_hTitle = TEXT_CreateEx(0, 0, LCD_GetXSize(), 32, WM_HBKWIN, WM_CF_SHOW, 0, GUI_ID_TEXT0, _GetLang(TEXT_ID_GELDAUTOMAT));
-// 				TEXT_SetTextAlign(_hTitle, GUI_TA_HCENTER);
-// 				TEXT_SetFont(_hTitle, MAIN_FONT);
-// 				/* É¾³ıÕâ¸ö´´½¨µÄ½çÃæ */
-// 				_DeleteFrame();
-// 				_CreateFrame(&_cbInsertCard);
-// 			}
-            /* ´´½¨±êÌâ£¬¾ÓÖĞÏÔÊ¾ */
-            _hTitlePic = TEXT_CreateEx(0, 5, LCD_GetXSize(), 32, WM_HBKWIN, WM_CF_SHOW, 0, GUI_ID_TEXT0, "¹¤ÒÕÎÄ¼şÏÔÊ¾");
-            TEXT_SetTextAlign(_hTitlePic, GUI_TA_HCENTER);
-            TEXT_SetFont(_hTitlePic, MAIN_FONT);
-            /* É¾³ıÕâ¸ö´´½¨µÄ½çÃæ */
+            /* É¾³ıÕâ¸ö´´½¨µÄ½çÃæ£¬½øÈE¤ÒÕÎÄ¼şÏÔÊ¾½çÃE*/
             _DeleteFrame();
             _CreateFrame(&_cbInsertCard);
-			break;
+            break;
 		default:
 		WM_DefaultProc(pMsg);
 	}
@@ -718,8 +659,8 @@ static void _cbLanguage(WM_MESSAGE* pMsg)
 
 /*
 *********************************************************************************************************
-*	º¯ Êı Ãû: MainTask
-*	¹¦ÄÜËµÃ÷: GUIÖ÷º¯Êı 
+*	º¯ Êı ÃE MainTask
+*	¹¦ÄÜËµÃE GUIÖ÷º¯Êı 
 *	ĞÎ    ²Î£ºÎŞ
 *	·µ »Ø Öµ: ÎŞ
 *********************************************************************************************************
@@ -732,9 +673,6 @@ void MainTask(void)
 	CPU_TS		ts;
 	OS_MSG_SIZE	msg_size;
 	uint8_t	   *p_msg;
-	
-	uint16_t ICONVIEW_HNum = 0;  /* ICONVIEWÔÚË®Æ½·½ÏòµÄÍ¼ÏñÊı */
-	uint16_t ICONVIEW_VNum = 0;  /* ICONVIEWÔÚ´¹Ö±·½ÏòµÄÍ¼ÏñÊı */
 	
 	prevent_refresh = 0; 
 
@@ -755,16 +693,16 @@ void MainTask(void)
 	MULTIPAGE_SetDefaultSkin(MULTIPAGE_SKIN_FLEX);
 	
 	/* 
-	 * ÔÚËùÓĞµÄ´°¿ÚÉÏ×Ô¶¯µÄÊ¹ÓÃÄÚ´æÉè±¸£¬ÔÚGUI_Initºóµ÷ÓÃ²»°üÀ¨
-	 * ±³¾°´°¿Ú£¨×ÀÃæ´°¿Ú£©£¬Ö®Ç°µ÷ÓÃ²Å°üÀ¨±³¾°´°¿Ú 
+	 * ÔÚËùÓĞµÄ´°¿ÚÉÏ×Ô¶¯µÄÊ¹ÓÃÄÚ´æÉè±¸£¬ÔÚGUI_Initºóµ÷ÓÃ²»°E¨
+	 * ±³¾°´°¿Ú£¨×ÀÃæ´°¿Ú£©£¬Ö®Ç°µ÷ÓÃ²Å°E¨±³¾°´°¿Ú 
 	 */
  	WM_SetCreateFlags(WM_CF_MEMDEV);			
 	WM_SetCallback(WM_HBKWIN, _cbBkWindow);
 
-    /* ½øÈëÖ÷½çÃæ */
-	_CreateFrame(&_cbLanguage);
+    /* ½øÈE÷½çÃE*/
+	_CreateFrame(&_cbMainGUI);
     
-	/* ´´½¨Ò»¸ö¶Ô»°¿ò,ÀàĞÍXPÏµÍ³µÄÈÎÎñÀ¸ */
+	/* ´´½¨Ò»¸ö¶Ô»°¿EÀàĞÍXPÏµÍ³µÄÈÎÎñÀ¸ */
 	hWinTaskBar = GUI_CreateDialogBox(_aDialogCreateMain, 
 	                            GUI_COUNTOF(_aDialogCreateMain), 
 								&_cbCallbackMain, 
@@ -774,16 +712,16 @@ void MainTask(void)
 
 	/* 
 	 * ´´½¨¶¨Ê±Æ÷£¬Æä¹¦ÄÜÊÇ¾­¹ıÖ¸¶¨ÖÜÆÚºó£¬ÏòÖ¸¶¨´°¿Ú·¢ËÍÏûÏ¢¡£
-	 * ¸Ã¶¨Ê±Æ÷ÓëÖ¸¶¨´°¿ÚÏà¹ØÁª¡£ 
+	 * ¸Ã¶¨Ê±Æ÷ÓE¸¶¨´°¿ÚÏà¹ØÁª¡£ 
 	 */
-	WM_CreateTimer(hWinTaskBar,  /* ½ÓÊÜĞÅÏ¢µÄ´°¿ÚµÄ¾ä±ú */
+	WM_CreateTimer(hWinTaskBar,  /* ½ÓÊÜĞÅÏ¢µÄ´°¿ÚµÄ¾ä±E*/
 	               0, 	         /* ÓÃ»§¶¨ÒåµÄId¡£Èç¹û²»¶ÔÍ¬Ò»´°¿ÚÊ¹ÓÃ¶à¸ö¶¨Ê±Æ÷£¬´ËÖµ¿ÉÒÔÉèÖÃÎªÁã¡£ */
 				   1000,         /* ÖÜÆÚ£¬´ËÖÜÆÚ¹ıºóÖ¸¶¨´°¿ÚÓ¦ÊÕµ½ÏûÏ¢*/
 				   0);	         /* Áô´ı½«À´Ê¹ÓÃ£¬Ó¦Îª0 */
 
 	while (1) 
 	{
-		/* ÓÃÓÚ½ÓÊÕ°´¼ü£¬Èç¹û½ÓÊÕµ½£¬Ö´ĞĞ´¥ÃşĞ£×¼ */
+		/* ÓÃÓÚ½ÓÊÕ°´¼E¬Èç¹û½ÓÊÕµ½£¬Ö´ĞĞ´¥ÃşĞ£×¼ */
 		p_msg = OSTaskQPend(10,
 						    OS_OPT_PEND_BLOCKING,
 						    &msg_size,
