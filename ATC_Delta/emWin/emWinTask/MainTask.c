@@ -137,34 +137,6 @@ typedef struct {
   const char       * pText;
 } BITMAP_ITEM;
 
-/* 用于桌面ICONVIEW图标的创建 */
-static const BITMAP_ITEM _aBitmapItem[] = {
-  {&bmComputer, "Computer"},
-  {&bmSettings,  "Settings"},
-  {&bmAD7606,    "AD7606" },
-  {&bmPicture,   "Picture" },
-
-  {&bm3D,        "3D"},
-  {&bmBluetooth,  "Bluetooth"},
-  {&bmCamera,    "Camera" },
-  {&bmClock,   "Clock" },
-
-  {&bmFMAM, "FM/AM"},
-  {&bmGPS,  "GPS"},
-  {&bmMP3,    "MP3" },
-  {&bmNet,   "Net" },
-
-  {&bmRecorder, "Recorder"},
-  {&bmSensor,  "Sensor"},
-  {&bmText,    "Text" },
-  {&bmUSB,   "USB" },
-
-  {&bmVedio, "Video"},
-  {&bmWIFI,  "WIFI"},
-  {&bmWireless,    "Wireless" },
-  {&bmSignal,   "Signal" },
-};
-
 /*
 *********************************************************************************************************
 *				                         对话框初始化选项
@@ -290,7 +262,7 @@ void PaintDialogMain(WM_MESSAGE * pMsg)
 /*
 *********************************************************************************************************
 *	函 数 名: InitDialogMain
-*	功能说明: 对话框初始化
+*	功能说明: 任务栏初始化
 *	形    参：pMsg
 *	返 回 值: 无
 *********************************************************************************************************
@@ -487,7 +459,7 @@ static void _DrawLogoBox(int Index, const GUI_BITMAP GUI_UNI_PTR* pBitmap)
 *	返 回 值: 无
 *********************************************************************************************************
 */
-static void _PaintFrame(void) 
+void _PaintFrame(void) 
 {
 	GUI_RECT r;
 	WM_GetClientRect(&r);
@@ -549,12 +521,7 @@ static void _cbInsertCard(WM_MESSAGE* pMsg)
             break;
 		case WM_PAINT:
 			_PaintFrame();
-			_DrawLogoBox(0, &bmLogo_armflySmall);
-			_DrawLogoBox(1, &bmLogo_armflySmall);
-			_DrawLogoBox(2, &bmLogo_armflySmall);
-			_DrawLogoBox(3, &bmLogo_armflySmall);
-			_DrawLogoBox(4, &bmLogo_armflySmall);
-			GUI_DispStringHCenterAt("123456", FRAME_WIDTH >> 1, 15);
+            OnICON3Clicked();
 			break;
 		case WM_TOUCH:
 			break;
@@ -574,24 +541,11 @@ static void _cbInsertCard(WM_MESSAGE* pMsg)
 __IO uint8_t prevent_refresh = 0;  /* 这个参数比较重要，用于防止ICON控件点击下时就触发回调函数的WM_PAINT消息*/
 void _cbBkWindow(WM_MESSAGE * pMsg) 
 {
-	int NCode, Id;
-	
 	switch (pMsg->MsgId) 
 	{
 		case WM_NOTIFY_PARENT:
-// 		Id    = WM_GetId(pMsg->hWinSrc);      /* Id of widget */
-// 		NCode = pMsg->Data.v;                 /* Notification code */
-// 		switch (Id) 
-// 		{
-
-// 		}
 		break;
 		case WM_KEY:
-//             GUI_SetBkColor(GUI_BLUE);
-//             GUI_Clear();
-//             GUI_SetFont(&GUI_FontHZ_SimSun_16);
-//             GUI_SetColor(GUI_WHITE);
-//             GUI_DispStringHCenterAt("按键K2用于触摸校准,电容屏无需校准", LCD_GetXSize()/2, LCD_GetYSize() - 100);
         break;
 		/* 重绘消息*/
 		case WM_PAINT:
@@ -606,37 +560,12 @@ void _cbBkWindow(WM_MESSAGE * pMsg)
 				y = MAIN_LOGO_OFFSET_Y + ((MAIN_TITLE_HEIGHT - MAIN_LOGO_BITMAP->YSize) >> 1);
 				GUI_DrawBitmap(MAIN_LOGO_BITMAP, x, y);
                 
-                /* 设置标题 */
-//                 _hTitle = TEXT_CreateEx(0, 5, LCD_GetXSize(), 32, WM_HBKWIN, WM_CF_SHOW, 0, GUI_ID_TEXT0, "自动计数器");
-//                 TEXT_SetTextAlign(_hTitle, GUI_TA_HCENTER);
-//                 TEXT_SetFont(_hTitle, MAIN_FONT);
-                
 				x = MAIN_BORDER;
 				y = MAIN_TITLE_HEIGHT;
 				w = LCD_GetXSize() - (MAIN_BORDER * 2);
 				h = LCD_GetYSize()  - (MAIN_BORDER + MAIN_TITLE_HEIGHT);
 				_DrawDownRect(FRAME_EFFECT, x, y, x + w - 1, y + h - 1);
-			}
-// 			if(g_LcdWidth == 800)
-// 			{
-// 				if(prevent_refresh == 0)
-// 				{ 
-// 					GUI_SetBkColor(GUI_BLUE);
-// 					GUI_Clear();
-// 					GUI_SetFont(&GUI_FontHZ_SimSun_16);
-// 					GUI_SetColor(GUI_WHITE);
-// 	 				GUI_DispStringHCenterAt("按键K2用于触摸校准,电容屏无需校准", LCD_GetXSize()/2, LCD_GetYSize() - 54);
-// 					prevent_refresh = 1;
-// 				}	
-// 			}
-// 			else
-// 			{
-// 				GUI_SetBkColor(GUI_BLUE);
-// 				GUI_Clear();
-// 				GUI_SetFont(&GUI_FontHZ_SimSun_16);
-// 				GUI_SetColor(GUI_WHITE);
-// 				GUI_DispStringHCenterAt("按键K2用于触摸校准,电容屏无需校准", LCD_GetXSize()/2, LCD_GetYSize() - 54);
-// 			}		
+			}		
 		break;
 			
 	 default:
@@ -709,7 +638,8 @@ static void _cbLanguage(WM_MESSAGE* pMsg)
             TEXT_SetFont(_hTitlePic, MAIN_FONT);
             /* 删除这个创建的界面 */
             _DeleteFrame();
-            _CreateFrame(&_cbInsertCard);
+            OnICON3Clicked();
+            _CreateFrame(&_cbBkWindow2);
 			break;
 		default:
 		WM_DefaultProc(pMsg);
@@ -726,15 +656,10 @@ static void _cbLanguage(WM_MESSAGE* pMsg)
 */
 void MainTask(void) 
 {	
-	uint8_t i;
-	
 	OS_ERR      err;
 	CPU_TS		ts;
 	OS_MSG_SIZE	msg_size;
 	uint8_t	   *p_msg;
-	
-	uint16_t ICONVIEW_HNum = 0;  /* ICONVIEW在水平方向的图像数 */
-	uint16_t ICONVIEW_VNum = 0;  /* ICONVIEW在垂直方向的图像数 */
 	
 	prevent_refresh = 0; 
 
