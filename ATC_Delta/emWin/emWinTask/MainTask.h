@@ -185,6 +185,7 @@ extern void OnICON18Clicked(void);
 extern uint8_t OnICON19;
 extern void OnICON19Clicked(void);
 
+extern void _cbBkWindow2(WM_MESSAGE * pMsg);
 
 typedef enum {
   USB_IDLE   = 0,
