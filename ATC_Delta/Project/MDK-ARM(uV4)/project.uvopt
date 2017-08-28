@@ -687,7 +687,7 @@
 
   <Group>
     <GroupName>BSP</GroupName>
-    <tvExp>0</tvExp>
+    <tvExp>1</tvExp>
     <tvExpOptDlg>0</tvExpOptDlg>
     <cbSel>0</cbSel>
     <File>
@@ -1548,7 +1548,7 @@
 
   <Group>
     <GroupName>fonts</GroupName>
-    <tvExp>0</tvExp>
+    <tvExp>1</tvExp>
     <tvExpOptDlg>0</tvExpOptDlg>
     <cbSel>0</cbSel>
     <File>
@@ -1613,10 +1613,10 @@
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>48</ColumnNumber>
+      <ColumnNumber>0</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>0</TopLine>
-      <CurrentLine>0</CurrentLine>
+      <TopLine>10</TopLine>
+      <CurrentLine>1</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>..\..\User\fonts\hz16.c</PathWithFileName>
       <FilenameWithoutPath>hz16.c</FilenameWithoutPath>
@@ -1629,8 +1629,8 @@
       <Focus>0</Focus>
       <ColumnNumber>0</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>0</TopLine>
-      <CurrentLine>0</CurrentLine>
+      <TopLine>12</TopLine>
+      <CurrentLine>18</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>..\..\User\fonts\hz24.c</PathWithFileName>
       <FilenameWithoutPath>hz24.c</FilenameWithoutPath>
@@ -1643,8 +1643,8 @@
       <Focus>0</Focus>
       <ColumnNumber>0</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>0</TopLine>
-      <CurrentLine>0</CurrentLine>
+      <TopLine>12</TopLine>
+      <CurrentLine>18</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>..\..\User\fonts\hz32.c</PathWithFileName>
       <FilenameWithoutPath>hz32.c</FilenameWithoutPath>
@@ -1669,10 +1669,10 @@
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>0</ColumnNumber>
+      <ColumnNumber>45</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>154775</TopLine>
-      <CurrentLine>18</CurrentLine>
+      <TopLine>154779</TopLine>
+      <CurrentLine>154798</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>..\..\User\fonts\SimSun_13.c</PathWithFileName>
       <FilenameWithoutPath>SimSun_13.c</FilenameWithoutPath>
@@ -1683,10 +1683,10 @@
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>22</ColumnNumber>
+      <ColumnNumber>55</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>0</TopLine>
-      <CurrentLine>0</CurrentLine>
+      <TopLine>3198</TopLine>
+      <CurrentLine>3206</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>..\..\User\fonts\SimSun_2424.c</PathWithFileName>
       <FilenameWithoutPath>SimSun_2424.c</FilenameWithoutPath>
@@ -1793,7 +1793,7 @@
 
   <Group>
     <GroupName>GUI/DEMO</GroupName>
-    <tvExp>1</tvExp>
+    <tvExp>0</tvExp>
     <tvExpOptDlg>0</tvExpOptDlg>
     <cbSel>0</cbSel>
     <File>
@@ -1802,10 +1802,10 @@
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>21</ColumnNumber>
+      <ColumnNumber>42</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>690</TopLine>
-      <CurrentLine>712</CurrentLine>
+      <TopLine>554</TopLine>
+      <CurrentLine>572</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>..\..\emWin\emWinTask\MainTask.c</PathWithFileName>
       <FilenameWithoutPath>MainTask.c</FilenameWithoutPath>
@@ -1858,10 +1858,10 @@
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>61</ColumnNumber>
+      <ColumnNumber>8</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>0</TopLine>
-      <CurrentLine>0</CurrentLine>
+      <TopLine>200</TopLine>
+      <CurrentLine>49</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>..\..\emWin\emWinTask\App_Sensor.c</PathWithFileName>
       <FilenameWithoutPath>App_Sensor.c</FilenameWithoutPath>
