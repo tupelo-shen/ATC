@@ -4,7 +4,7 @@
 *	模块名称 : GUI界面主函数
 *	文件名称 : MainTask.c
 *	皝E   本 : V1.2d
-*	说    脕E: 综合实例主界面设计
+*	说    明: 综合实例主界面设计
 *	修改记录 :
 *		版本号    日期          作者        说脕E
 *		v1.0    2013-04-26    Eric2013      首发
@@ -87,7 +87,6 @@ extern GUI_CONST_STORAGE GUI_BITMAP bmLogo_armflySmall;
 
 extern WM_HWIN    _hLastFrame;
 static WM_HWIN    _hTitle;
-static WM_HWIN    _hTitlePic;
 /*
 *********************************************************************************************************
 *                                      变量
@@ -152,7 +151,7 @@ static const GUI_WIDGET_CREATE_INFO _aDialogCreateMain[] = {
 
 /*
 *********************************************************************************************************
-*	函 数 脕E File_Init
+*	函 数 名: File_Init
 *	功能说脕E 文件系统初始化
 *	形    参：无
 *	返 回 值: 无
@@ -197,7 +196,7 @@ static void File_Init(void)
 
 /*
 *********************************************************************************************************
-*	函 数 脕E Caculate_RTC
+*	函 数 名: Caculate_RTC
 *	功能说脕E 显示RTC时紒E
 *	形    参：pMsg 指諄E问�            
 *	返 回 值: 无
@@ -232,7 +231,7 @@ static void Caculate_RTC(WM_MESSAGE * pMsg)
 
 /*
 *********************************************************************************************************
-*	函 数 脕E PaintDialogMain
+*	函 数 名: PaintDialogMain
 *	功能说脕E 任务栏的重绘函数 
 *	形    参：pMsg 指諄E问�
 *	返 回 值: 无
@@ -243,17 +242,17 @@ void PaintDialogMain(WM_MESSAGE * pMsg)
 	GUI_SetBkColor(GUI_WHITE); 
     GUI_Clear(); 
 	
-	/* 绘制启动小图眮E*/
+	/* 绘制启动小图标*/
 	GUI_DrawBitmap(&bmStart, 
 	               Imag_LBorder, 
 	               Imag_TBorder);
 	
-	/* 绘制喇叭小图眮E*/
+	/* 绘制喇叭小图标*/
 	GUI_DrawBitmap(&bmSpeaker, 
 	               LCD_GetXSize() - Time_Width - ImagSpeak_Width + Imag_LBorder, 
 	               Imag_TBorder);
 	
-	/* 绘制信号小图眮E*/
+	/* 绘制信号小图标*/
 	GUI_DrawBitmap(&bmsignal, 
 	               LCD_GetXSize() - Time_Width - ImagSpeak_Width - ImagSignal_Width  + Imag_LBorder, 
 	               Imag_TBorder);	
@@ -324,9 +323,9 @@ void InitDialogMain(WM_MESSAGE * pMsg)
 
 /*
 *********************************************************************************************************
-*	函 数 脕E _cbCallbackMain
-*	功能说脕E 回调函数 
-*	形    参：pMsg
+*	函 数 名: _cbCallbackMain
+*	功能说明: 回调函数 
+*	形    参: pMsg
 *	返 回 值: 无
 *********************************************************************************************************
 */
@@ -387,7 +386,7 @@ static void _cbCallbackMain(WM_MESSAGE * pMsg)
 }
 /*
 *********************************************************************************************************
-*	函 数 脕E _DrawDownRectEx
+*	函 数 ��: _DrawDownRectEx
 *	功能说脕E 显示凹陷的矩形縼E
 *	形    参：pEffect  控件显示效箒E
 *             pRect    GUI_RECT类型变量地址
@@ -402,13 +401,13 @@ static void _DrawDownRectEx(const WIDGET_EFFECT* pEffect, const GUI_RECT* pRect)
 }
 /*
 *********************************************************************************************************
-*	函 数 脕E _DrawDownRect
-*	功能说脕E 显示凹陷的矩形縼E
-*	形    参：pEffect  控件显示效箒E
-*             x0       起始x轴坐眮E
-*             y0       起始y轴坐眮E
-*             x1       结束x轴坐眮E
-*             y1       结束y轴坐眮E
+*	函 数 名: _DrawDownRect
+*	功能说明：显示凹陷的矩形縼E
+*	形    参：pEffect  控件显示效果
+*             x0       起始x轴坐标
+*             y0       起始y轴坐标
+*             x1       结束x轴坐标
+*             y1       结束y轴坐标
 *	返 回 值: 无
 *********************************************************************************************************
 */
@@ -425,7 +424,7 @@ static void _DrawDownRect(const WIDGET_EFFECT* pEffect, int x0, int y0, int x1, 
 
 /*
 *********************************************************************************************************
-*	函 数 脕E _DrawLogoBox
+*	函 数 名: _DrawLogoBox
 *	功能说脕E 小紒E痰幕氐骱�
 *	形    参：Index     要显示的位图序号
 *             pBitmap   位图地址
@@ -453,7 +452,7 @@ static void _DrawLogoBox(int Index, const GUI_BITMAP GUI_UNI_PTR* pBitmap)
 }
 /*
 *********************************************************************************************************
-*	函 数 脕E _PaintFrame
+*	函 数 名: _PaintFrame
 *	功能说脕E 框架窗口的重绘函数
 *	形    参：无
 *	返 回 值: 无
@@ -471,7 +470,7 @@ void _PaintFrame(void)
 }
 /*
 *********************************************************************************************************
-*	函 数 脕E _CreateFrame
+*	函 数 名: _CreateFrame
 *	功能说脕E 创建框架窗口
 *	形    参：cb  回调函数地址
 *	返 回 值: 无
@@ -488,7 +487,7 @@ static WM_HWIN _CreateFrame(WM_CALLBACK* cb)
 }
 /*
 *********************************************************************************************************
-*	函 数 脕E _DeleteFrame
+*	函 数 名: _DeleteFrame
 *	功能说脕E 删除创建的框架窗口
 *	形    参：无
 *	返 回 值: 无
@@ -501,7 +500,7 @@ static void _DeleteFrame(void)
 }
 /*
 *********************************************************************************************************
-*	函 数 脕E _cbInsertCard
+*	函 数 名: _cbInsertCard
 *	功能说脕E 第二个界面，等待用户插葋E锌�
 *	形    参：pMsg  参数指諄E
 *	返 回 值: 无
@@ -532,7 +531,7 @@ static void _cbInsertCard(WM_MESSAGE* pMsg)
 
 /*
 *********************************************************************************************************
-*	函 数 脕E _cbBkWindow
+*	函 数 名: _cbBkWindow
 *	功能说脕E 桌面窗口的回调函数 
 *	形    参：WM_MESSAGE * pMsg
 *	返 回 值: 无
@@ -574,7 +573,7 @@ void _cbBkWindow(WM_MESSAGE * pMsg)
 }
 /*
 *********************************************************************************************************
-*	函 数 脕E  _cbMainGUI
+*	函 数 名:  _cbMainGUI
 *	功能说脕E  主界面，用于显示工厂车间信息，流水线信息，订单信息，和工人信息
 *	形    参： pMsg  参数指諄E
 *	返 回 值: 无
@@ -589,7 +588,7 @@ static void _cbMainGUI(WM_MESSAGE* pMsg)
 			/* 设置聚焦 */
 			WM_SetFocus(hWin);
         
-            _hTitle = TEXT_CreateEx(0, 5, LCD_GetXSize(), 32, WM_HBKWIN, WM_CF_SHOW, 0, GUI_ID_TEXT0, "自动计数苼E);
+            _hTitle = TEXT_CreateEx(0, 5, LCD_GetXSize(), 32, WM_HBKWIN, WM_CF_SHOW, 0, GUI_ID_TEXT0, "自动计数器");
             TEXT_SetTextAlign(_hTitle, GUI_TA_HCENTER);
             TEXT_SetFont(_hTitle, MAIN_FONT);
 			break;
@@ -614,7 +613,7 @@ static void _cbMainGUI(WM_MESSAGE* pMsg)
 
 /*
 *********************************************************************************************************
-*	函 数 脕E MainTask
+*	函 数 名: MainTask
 *	功能说脕E GUI主函数 
 *	形    参：无
 *	返 回 值: 无
