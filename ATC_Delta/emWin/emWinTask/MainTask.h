@@ -186,6 +186,10 @@ extern uint8_t OnICON19;
 extern void OnICON19Clicked(void);
 
 extern void _cbBkWindow2(WM_MESSAGE * pMsg);
+extern void _PaintFrame(void);
+extern void _DeleteFrame(void);
+extern WM_HWIN _CreateFrame(WM_CALLBACK* cb);
+extern void _cbMainGUI(WM_MESSAGE* pMsg);
 
 typedef enum {
   USB_IDLE   = 0,
