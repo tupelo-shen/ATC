@@ -394,7 +394,9 @@ static void AppTaskCOM(void *p_arg)
 	优 先 级：2
 *********************************************************************************************************
 */
+#if APP_CFG_UIP_ENABLED
 extern void uip_pro(void);
+#endif
 extern void lwip_pro(void);
 WM_HWIN    _hLastFrame;
 static void AppTaskUserIF(void *p_arg)
@@ -454,7 +456,9 @@ static void AppTaskUserIF(void *p_arg)
 		}
 		/************************uip和LWIP的刷新******************************************/
 		lwip_pro();
+        #if APP_CFG_UIP_ENABLED
 		uip_pro();
+        #endif
         BSP_OS_TimeDlyMs(5);	     
 	}
 }

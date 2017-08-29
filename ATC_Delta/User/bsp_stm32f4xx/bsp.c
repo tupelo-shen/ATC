@@ -11,7 +11,7 @@
 *		v1.0    2012-12-17  Eric2013  BSP驱动包V1.0
 *		v1.1    2014-05-23  Eric2013  BSP驱动包V1.2
 *	
-*	Copyright (C), 2014-2015, 安富莱电子 www.armfly.com
+*	Copyright (C), 2014-2015, 安富莱电子 www.delta.com
 *
 *********************************************************************************************************
 */
@@ -374,6 +374,7 @@ eeprom_failed:
 	}
 	
 	/* 第5步：显示UIP *************************************************************************/
+#if APP_CFG_UIP_ENABLED
 	{
 		uint32_t id;
 		uip_start(g_tParam.uip_ip, g_tParam.uip_net_mask, g_tParam.uip_gateway);
@@ -391,6 +392,7 @@ eeprom_failed:
 			HW_InitDisp(usLineNum, usLineCurrent++, buf, ErrRecord);
 		}
 	}
+#endif /* #if APP_CFG_UIP_ENABLED */
 	
 	/* 第6步：显示Lwip *************************************************************************/
 	{
@@ -810,4 +812,4 @@ CPU_INT64U  CPU_TS64_to_uSec (CPU_TS64  ts_cnts)
 }
 #endif
 
-/***************************** 安富莱电子 www.armfly.com (END OF FILE) *********************************/
+/***************************** 安富莱电子 www.delta.com (END OF FILE) *********************************/
