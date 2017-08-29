@@ -476,7 +476,7 @@ void _PaintFrame(void)
 *	返 回 值: 无
 *********************************************************************************************************
 */
-static WM_HWIN _CreateFrame(WM_CALLBACK* cb) 
+WM_HWIN _CreateFrame(WM_CALLBACK* cb) 
 {
 	int x = 0;
 	int y = 0;
@@ -493,7 +493,7 @@ static WM_HWIN _CreateFrame(WM_CALLBACK* cb)
 *	返 回 值: 无
 *********************************************************************************************************
 */
-static void _DeleteFrame(void) 
+void _DeleteFrame(void) 
 {
 	WM_DeleteWindow(_hLastFrame);
 	_hLastFrame = 0;
@@ -542,13 +542,13 @@ void _cbBkWindow(WM_MESSAGE * pMsg)
 }
 /*
 *********************************************************************************************************
-*	函 数 名: _cbLanguage
+*	函 数 名: _cbMainGUI
 *	功能说明: 第一个界面，用于中文和英语的选择
 *	形    参：pMsg  参数指针
 *	返 回 值: 无
 *********************************************************************************************************
 */
-static void _cbMainGUI(WM_MESSAGE* pMsg) 
+void _cbMainGUI(WM_MESSAGE* pMsg) 
 {
 	WM_HWIN     hWin = pMsg->hWin;
     GUI_RECT    rClient;
