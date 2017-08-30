@@ -1688,6 +1688,16 @@
           </Files>
         </Group>
         <Group>
+          <GroupName>LwIP-CLIENT</GroupName>
+          <Files>
+            <File>
+              <FileName>lwip_client.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\User\LwIP\lwip_client.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
           <GroupName>Doc</GroupName>
           <Files>
             <File>
@@ -3406,6 +3416,16 @@
           </Files>
         </Group>
         <Group>
+          <GroupName>LwIP-CLIENT</GroupName>
+          <Files>
+            <File>
+              <FileName>lwip_client.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\User\LwIP\lwip_client.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
           <GroupName>Doc</GroupName>
           <Files>
             <File>
@@ -5120,6 +5140,16 @@
               <FileName>stm32f4x7_eth_bsp.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\User\LwIP\stm32f4x7_eth_bsp.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>LwIP-CLIENT</GroupName>
+          <Files>
+            <File>
+              <FileName>lwip_client.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\User\LwIP\lwip_client.c</FilePath>
             </File>
           </Files>
         </Group>

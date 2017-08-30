@@ -255,6 +255,7 @@ int main(void)
 	优 先 级：2
 *********************************************************************************************************
 */
+#include "lwip_client.h"
 static  void  AppTaskStart (void *p_arg)
 {
 	uint8_t  ucCount = 0;
@@ -276,7 +277,8 @@ static  void  AppTaskStart (void *p_arg)
 #endif
 
     AppObjCreate();                                            
-    AppTaskCreate();                                           
+    AppTaskCreate(); 
+    LwipClientPro();
     while (1)
 	{  
 		/* 1ms一次触摸扫描，电阻触摸屏 */
