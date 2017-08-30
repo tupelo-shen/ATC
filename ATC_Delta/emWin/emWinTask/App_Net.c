@@ -48,7 +48,6 @@ void uip_pro(void);
 void lwip_start(uint8_t *_IP, uint8_t *_NetMask, uint8_t *_NetGate);
 void lwip_pro(void);
 
-
 extern PARAM_T g_tParam;
 extern __IO uint32_t  EthInitStatus;
 extern __IO uint8_t EthLinkStatus;
