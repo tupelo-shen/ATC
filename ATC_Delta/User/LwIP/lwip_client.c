@@ -16,19 +16,14 @@
 /********************************************************************************************************
  *                                          INCLUDES
  ********************************************************************************************************/
-// #include "lwip/opt.h"
-// #include <lwip/api.h>
-// #include "lwip/ip_addr.h"
-// #include "lwip/pbuf.h"
-// #include "lwip/err.h"
-// #include "lwip/netbuf.h"
-#include "lwip_client.h"
+#include "string.h"
 #include "stm32f4x7_eth_bsp.h"
 #include "netconf.h"
-//#include "netmain.h"
 #include "lwip/tcp.h"
 #include "lwip/mem.h"
 #include "lwip/memp.h"
+#include "main_lwip.h"
+#include "lwip_client.h"
 /********************************************************************************************************
  *                                          FUNC DEFINITION
  ********************************************************************************************************/
@@ -103,6 +98,8 @@ struct ip_addr rmtipaddr;  	                    //远端ip地址
  */
 u8 tcp_client_flag = 0;
 
+
+// 客户端连接相关函数
 static err_t    tcp_client_connected(void *arg, struct tcp_pcb *tpcb, err_t err);
 static err_t    tcp_client_sent(void *arg, struct tcp_pcb *tpcb, u16_t len);
 static err_t    tcp_client_poll(void *arg, struct tcp_pcb *tpcb);
@@ -110,15 +107,38 @@ static err_t    tcp_client_recv(void *arg, struct tcp_pcb *tpcb, struct pbuf *p,
 static void     tcp_client_connection_close(struct tcp_pcb *tpcb, struct tcp_client_struct *es);
 static void     tcp_client_senddata(struct tcp_pcb *tpcb, struct tcp_client_struct * es);
 static void     tcp_client_error(void *arg, err_t err);
+
+// 数据处理相关函数
+static void     tcpClientRcvdataProc(void);
+static void     procDataFromPkt(void);
+static void     setIdleData(void);
+static void     setLoginData(void);
+static void     setRequestOrderData(void);
+static u32      setTcpSendData(st_EthSendData* data_ptr);
+static void     setTcpClientSendFlag(void);
+
+/*********************************************************************************************************
+*                                     setTcpClientSendFlag  
+*
+* @Description : setTcpClientSendFlag
+* @Arguments   : none
+* @Returns     : none
+**********************************************************************************************************/
+static void setTcpClientSendFlag(void)
+{
+	__disable_irq();
+	tcp_client_flag |= 1<<7;
+	__enable_irq();
+}
 /*
 *********************************************************************************************************
-*	函 数 名: LwipClientPro
+*	函 数 名: LwipClientConnect
 *	功能说明: tcp客户端任务函数 
 *	形    参：void
 *	返 回 值: void
 *********************************************************************************************************
 */
-void LwipClientPro(void)
+err_t LwipClientConnect(void)
 {
     err_t err = ERR_OK;
     
@@ -130,12 +150,459 @@ void LwipClientPro(void)
         if(err == ERR_OK)
 		{
 			err = tcp_connect(tcppcb,&rmtipaddr,8087,tcp_client_connected);  
-			if(err != ERR_OK)
-			{
-				// error process;
-			}
 		}
     }
+    
+    return err;
+}
+/*
+*********************************************************************************************************
+*	函 数 名: LwipClientReconnect
+*	功能说明: tcp客户端重新连接服务器 
+*	形    参：void
+*	返 回 值: void
+*********************************************************************************************************
+*/
+err_t LwipClientReconnect(void)
+{
+    err_t err = ERR_OK;
+    
+    // 关闭上一次连接
+    tcp_client_connection_close(tcppcb, 0);
+    
+    tcppcb = tcp_new();	//创建一个新的pcb
+    if(tcppcb)
+    {
+        IP4_ADDR(&rmtipaddr, 192, 168, 1, 5);
+        err = tcp_bind(tcppcb, IP_ADDR_ANY, 8087);
+        if(err == ERR_OK)
+		{
+			err = tcp_connect(tcppcb,&rmtipaddr,8087,tcp_client_connected);  
+		}
+    }
+    
+    return err;
+}
+/*********************************************************************************************************
+*                                     tcpClientRcvdataProc  
+*
+* @Description : 客户端接收数据处理
+* @Arguments   : none
+* @Returns     : none
+**********************************************************************************************************/
+static void tcpClientRcvdataProc(void)
+{	
+	if(tcp_client_flag & 1<<6)
+	{		
+		tcp_client_flag &= ~(1<<6);
+		procDataFromPkt();
+	}
+}
+/*********************************************************************************************************
+*                                     procDataFromPkt  
+*
+* @Description : 客户端接收数据处理
+* @Arguments   : none
+* @Returns     : none
+**********************************************************************************************************/
+static void procDataFromPkt(void)
+{
+#if 0
+	st_EthRcvData rcv_data;
+	u32 data_ptr = 0;
+	u32 index = 0;
+	u32 data_len = 0;
+	u8 	work_shop_info[17] = {0};
+	u32 work_shop_info_size = 0;
+	u8 	work_line_info[17] = {0};
+	u32 employe_is_exist = 0;
+	u32 employe_num_size = 0;
+	u8 	order_data[17] = {0};
+	u32 order_data_size = 0;
+
+	if(!findDataPktHeader())
+	{
+		for(index=0;index<4;index++)
+		{
+			rcv_data.header |= (u32)((0x000000FF & (u32)tcp_rcv_buf.data[data_ptr++]) << ((3-index) * 8));
+		}
+		for(index=0;index<MAC_SIZE;index++)
+		{
+			rcv_data.mac[index] = tcp_rcv_buf.data[data_ptr++];
+		}
+		for(index=0;index<IP_SIZE;index++)
+		{
+			rcv_data.ip[index] = tcp_rcv_buf.data[data_ptr++];
+		}
+		rcv_data.ack = tcp_rcv_buf.data[data_ptr++];
+		for(index=0;index<2;index++)
+		{
+			rcv_data.cmd_type |= (u16)((0x00FF & (u16)tcp_rcv_buf.data[data_ptr++]) << ((1-index) * 8));
+		}
+		for(index=0;index<4;index++)
+		{
+			rcv_data.status |= (u32)((0x000000FF & (u32)tcp_rcv_buf.data[data_ptr++]) << ((3-index) * 8));
+		}
+		data_len = findDataPktTailer(&tcp_rcv_buf.data[data_ptr], (tcp_rcv_buf.rcv_len-DATA_HEADER_LEN));
+		if(data_len>4)
+		{
+			switch(rcv_data.cmd_type)
+			{
+				case 0x0001:				// 空闲数据,请求流水线
+					work_shop_info_size = findDataPktDelimiter(&tcp_rcv_buf.data[data_ptr], data_len-4);
+				
+					if(work_shop_info_size > 4)
+					{
+						for(index=0;(index<work_shop_info_size-4) && index <16;index++)
+						{
+							work_shop_info[index] = tcp_rcv_buf.data[data_ptr++];
+						}
+						work_shop_info[index] = '\0';
+						change_text(&gWorkShop_Inform[0], (char *)work_shop_info);
+						data_ptr += 4;
+						for(index=0;(index<data_len-work_shop_info_size-4) && index <16;index++)
+						{
+							work_line_info[index] = tcp_rcv_buf.data[data_ptr++];
+						}
+						work_line_info[index] = '\0';
+						change_text(&gWorkShop_Inform[1], (char *)work_line_info);
+					}
+				break;
+				case 0x0002:			// 发送login数据
+					employe_num_size = findDataPktDelimiter(&tcp_rcv_buf.data[data_ptr], data_len-4);
+					if(employe_num_size > 4)
+					{
+						for(index=0;(index<employe_num_size-4) && index <4;index++)
+						{
+							employe_is_exist |= (((0x000000FF) & ((u32)tcp_rcv_buf.data[data_ptr++])) << ((3-index) * 8));
+						}
+						if(employe_is_exist == 0x00000002)
+						{
+							SetMainWorkState(STATE_MAIN_MASK&STATE_MAIN_LOGIN);
+							change_text(&gStaff_Inform[1], "12345678");	// 更新员工编号
+						}else if(employe_is_exist == 0x00000001)
+						{
+							SetMainWorkState(STATE_MAIN_MASK&STATE_MAIN_IDLE);
+							change_text(&gStaff_Inform[1], "********");	// 显示星号
+						}
+					}
+				break;
+				case 0x0005:			// 订单数据
+					//生产单、订单、规格型号、计划数、完成数、补充数
+					order_data_size = findDataPktDelimiter(&tcp_rcv_buf.data[data_ptr], data_len-4);
+					if(order_data_size > 4)
+					{
+						// 显示"生产单id"
+						for(index=0;index < order_data_size-4;index++)
+						{
+							order_data[index] = tcp_rcv_buf.data[data_ptr++];
+						}
+						order_data[index] = '\0';
+						data_ptr += 4;
+						change_text(&gOrder_Inform[0], (char *)order_data);	
+					}
+					else
+					{	
+						change_text(&gOrder_Inform[0], (char *)cu8_StatusDataNone);	// 显示"无"
+					}
+					// 显示"订单id"
+					data_len = data_len-order_data_size-4;
+					order_data_size = findDataPktDelimiter(&tcp_rcv_buf.data[data_ptr], data_len);
+					if(order_data_size > 4)
+					{
+						for(index=0;index < order_data_size-4;index++)
+						{
+							order_data[index] = tcp_rcv_buf.data[data_ptr++];
+						}
+						order_data[index] = '\0';
+						data_ptr += 4;
+						change_text(&gOrder_Inform[1], (char *)order_data);
+					}
+					else
+					{
+						change_text(&gOrder_Inform[1], (char *)cu8_StatusDataNone);	// 显示"无"
+					}
+					// 显示"规格型号"
+					data_len = data_len-order_data_size;
+					order_data_size = findDataPktDelimiter(&tcp_rcv_buf.data[data_ptr], data_len);
+					if(order_data_size > 4)
+					{
+						for(index=0;index < order_data_size-4;index++)
+						{
+							order_data[index] = tcp_rcv_buf.data[data_ptr++];
+						}
+						order_data[index] = '\0';
+						data_ptr += 4;
+						change_text(&gOrder_Inform[2], (char *)order_data);
+					}
+					else
+					{
+						change_text(&gOrder_Inform[2], (char *)cu8_StatusDataNone);	// 显示"无"
+					}
+					// 显示"计划数"
+					data_len = data_len-order_data_size;
+					order_data_size = findDataPktDelimiter(&tcp_rcv_buf.data[data_ptr], data_len);
+					if(order_data_size > 4)
+					{
+						for(index=0;index < order_data_size-4;index++)
+						{
+							order_data[index] = tcp_rcv_buf.data[data_ptr++];
+						}
+						order_data[index] = '\0';
+						data_ptr += 4;
+						change_text(&gProduce_Inf[0], (char *)order_data);
+					}
+					else
+					{
+						change_text(&gProduce_Inf[0], (char *)cu8_StatusDataNone);	// 显示"无"
+					}
+					// 显示"完成数"
+					data_len = data_len-order_data_size;
+					order_data_size = findDataPktDelimiter(&tcp_rcv_buf.data[data_ptr], data_len);
+					if(order_data_size > 4)
+					{
+						for(index=0;index < order_data_size-4;index++)
+						{
+							order_data[index] = tcp_rcv_buf.data[data_ptr++];
+						}
+						order_data[index] = '\0';
+						data_ptr += 4;
+						change_text(&gProduce_Inf[1], (char *)order_data);
+					}
+					else
+					{
+						change_text(&gProduce_Inf[1], (char *)cu8_StatusDataNone);	// 显示"无"
+					}
+					// 显示"补充数"
+					data_len = data_len-order_data_size;
+					if(data_len > 0)
+					{
+						for(index=0;index < data_len;index++)
+						{
+							order_data[index] = tcp_rcv_buf.data[data_ptr++];
+						}
+						order_data[index] = '\0';
+						change_text(&gProduce_Inf[2], (char *)order_data);
+					}
+					else
+					{
+						change_text(&gProduce_Inf[2], (char *)cu8_StatusDataNone);	// 显示"无"
+					}
+				break;
+				default:
+					// don't process
+				break;
+			}
+		}
+		else/* no data */
+		{
+			
+		}
+	}
+#endif
+}
+/*********************************************************************************************************
+*                                     TcpClientProc  
+*
+* @Description : 处理客户端数据
+* @Arguments   : 
+* @Returns     : none.
+**********************************************************************************************************/
+void TcpClientProc(void)
+{
+    // 处理接收数据
+    tcpClientRcvdataProc();
+    
+    switch(CurWorkState & STATE_MAIN_MASK)
+    {
+        case STATE_MAIN_IDLE:				
+            setIdleData();
+            setTcpClientSendFlag();
+        break;
+        
+        case STATE_MAIN_LOGINNING:
+            setLoginData();
+            setTcpClientSendFlag();
+        break;
+        
+        case STATE_MAIN_LOGIN:
+            setRequestOrderData();
+            setTcpClientSendFlag();
+        break;
+        
+        case STATE_MAIN_WORK:
+            
+        break;
+        
+        case STATE_MAIN_ERROR:
+            
+        break;
+        
+        default:
+            // do nothing
+        break;
+    }
+}
+/*********************************************************************************************************
+*                                        setIdleData
+*
+* @Description : 填充空闲数据包
+* @Arguments   : none
+* @Returns     : none
+**********************************************************************************************************/
+
+static void setIdleData(void)
+{	
+	send_data.header = 0xA5A5A5A5;
+	send_data.mac[0] = MAC_ADDR0;
+	send_data.mac[1] = MAC_ADDR1;
+	send_data.mac[2] = MAC_ADDR2;
+	send_data.mac[3] = MAC_ADDR3;
+	send_data.mac[4] = MAC_ADDR4;
+	send_data.mac[5] = MAC_ADDR5;
+
+	send_data.ip[0] = 0x00;
+	send_data.ip[1] = 0x00;
+	send_data.ip[2] = 0x00;
+	send_data.ip[3] = 0x00;
+	
+	send_data.ack = 0x01;
+	send_data.cmd_type = 0x0001;	// 空闲状态
+	send_data.status = 0x00000000;
+	send_data.data_len = 0x0;
+	send_data.tail = 0x5A5A5A5A;	
+	send_data.crc = 0x00000000;
+	setTcpSendData(&send_data);	
+}
+/*********************************************************************************************************
+*                                        setLoginData
+*
+* @Description : 填充用户打卡成功数据包
+* @Arguments   : none
+* @Returns     : none
+**********************************************************************************************************/
+
+static void setLoginData(void)
+{
+	u8* ptrICInfo = NULL;
+	
+	//ptrICInfo = GetICCardInfo();
+	
+	send_data.header = 0xA5A5A5A5;
+	send_data.mac[0] = MAC_ADDR0;
+	send_data.mac[1] = MAC_ADDR1;
+	send_data.mac[2] = MAC_ADDR2;
+	send_data.mac[3] = MAC_ADDR3;
+	send_data.mac[4] = MAC_ADDR4;
+	send_data.mac[5] = MAC_ADDR5;
+	if(ptrICInfo!=NULL)
+	{
+		send_data.ip[0] = *(ptrICInfo+2);
+		send_data.ip[1] = *(ptrICInfo+3);
+		send_data.ip[2] = *(ptrICInfo+4);
+		send_data.ip[3] = *(ptrICInfo+5);
+	}
+	
+	send_data.ack = 0x01;
+	send_data.cmd_type = 0x0002;	// 登陆中
+	send_data.status = 0x00000000;
+	send_data.data_len = 0x0;
+	send_data.tail = 0x5A5A5A5A;	
+	send_data.crc = 0x00000000;
+	setTcpSendData(&send_data);	
+}
+/*********************************************************************************************************
+*                                        setRequestOrderData
+*
+* @Description : 填充请求订单信息数据包
+* @Arguments   : none
+* @Returns     : none
+**********************************************************************************************************/
+
+static void setRequestOrderData(void)
+{
+	u8* ptrICInfo = NULL;
+	
+	//ptrICInfo = GetICCardInfo();
+	
+	send_data.header = 0xA5A5A5A5;
+	send_data.mac[0] = MAC_ADDR0;
+	send_data.mac[1] = MAC_ADDR1;
+	send_data.mac[2] = MAC_ADDR2;
+	send_data.mac[3] = MAC_ADDR3;
+	send_data.mac[4] = MAC_ADDR4;
+	send_data.mac[5] = MAC_ADDR5;
+	if(ptrICInfo!=NULL)
+	{
+		send_data.ip[0] = *(ptrICInfo+2);
+		send_data.ip[1] = *(ptrICInfo+3);
+		send_data.ip[2] = *(ptrICInfo+4);
+		send_data.ip[3] = *(ptrICInfo+5);
+	}
+	
+	send_data.ack = 0x01;
+	send_data.cmd_type = 0x0005;	// 请求订单
+	send_data.status = 0x00000000;
+	send_data.data_len = 0x0;
+	send_data.tail = 0x5A5A5A5A;	
+	send_data.crc = 0x00000000;
+	setTcpSendData(&send_data);	
+}
+/*********************************************************************************************************
+*                                     setTcpSendData  
+*
+* @Description : fill the data buf for transmittion.
+* @Arguments   : 
+* @Returns     : none.
+**********************************************************************************************************/ 
+static u32 setTcpSendData(st_EthSendData* data_ptr)
+{
+	u32 index;
+	
+	// fill header
+	tcp_send_buf.data[0] = (u8)(((data_ptr->header) & 0xFF000000) >> 24);
+	tcp_send_buf.data[1] = (u8)(((data_ptr->header) & 0x00FF0000) >> 16);
+	tcp_send_buf.data[2] = (u8)(((data_ptr->header) & 0x0000FF00) >> 8);
+	tcp_send_buf.data[3] = (u8)(((data_ptr->header) & 0x000000FF) >> 0);
+	// fill MAC adress
+	for(index = 0; index < MAC_SIZE; index++)
+	{
+		tcp_send_buf.data[index+4] = data_ptr->mac[index];
+	}
+	// fill IP adress
+	for(index = 0; index < IP_SIZE; index++)
+	{
+		tcp_send_buf.data[index+4+MAC_SIZE] = data_ptr->ip[index];
+	}
+
+	index = 4 + MAC_SIZE + IP_SIZE;
+	tcp_send_buf.data[index++] = 0x01;
+	tcp_send_buf.data[index++] = (u8)((data_ptr->cmd_type & 0xFF00) >> 8);
+	tcp_send_buf.data[index++] = (u8)((data_ptr->cmd_type & 0x00FF) >> 0);
+	// status
+	tcp_send_buf.data[index++] = (u8)((data_ptr->status & 0xFF000000) >> 24);
+	tcp_send_buf.data[index++] = (u8)((data_ptr->status & 0x00FF0000) >> 16);
+	tcp_send_buf.data[index++] = (u8)((data_ptr->status & 0x0000FF00) >> 8);
+	tcp_send_buf.data[index++] = (u8)((data_ptr->status & 0x000000FF) >> 0);
+	// data
+	for(;index < (DATA_HEADER_LEN + data_ptr->data_len); index++)
+	{
+		tcp_send_buf.data[index] = data_ptr->data[index-DATA_HEADER_LEN];
+	}
+	// tail
+	tcp_send_buf.data[index++] = (u8)((data_ptr->tail & 0xFF000000) >> 24);
+	tcp_send_buf.data[index++] = (u8)((data_ptr->tail & 0x00FF0000) >> 16);
+	tcp_send_buf.data[index++] = (u8)((data_ptr->tail & 0x0000FF00) >> 8);
+	tcp_send_buf.data[index++] = (u8)((data_ptr->tail & 0x000000FF) >> 0);
+	// CRC
+	tcp_send_buf.data[index++] = (u8)((data_ptr->crc & 0xFF000000) >> 24);
+	tcp_send_buf.data[index++] = (u8)((data_ptr->crc & 0x00FF0000) >> 16);
+	tcp_send_buf.data[index++] = (u8)((data_ptr->crc & 0x0000FF00) >> 8);
+	tcp_send_buf.data[index++] = (u8)((data_ptr->crc & 0x000000FF) >> 0);
+	
+	tcp_send_buf.send_len = data_ptr->data_len + DATA_HEADER_LEN + CRC_SIZE + TAIL_SIZE;
+	
+	return 0;
 }
 /*********************************************************************************************************
 *                                     tcp_client_connected  
@@ -305,7 +772,7 @@ static void tcp_client_error(void *arg, err_t err)
             //printf("\r\n ERR_IF   \r\n");  
             break;  
         case ERR_INPROGRESS:                                     /* Operation in progress    */  
-            printf("\r\n ERR_INPROGRESS   \r\n");  
+            //printf("\r\n ERR_INPROGRESS   \r\n");  
             break;  
   
     }  
@@ -428,83 +895,4 @@ static void tcp_client_connection_close(struct tcp_pcb *tpcb, struct tcp_client_
 	if(es) mem_free(es); 
 	tcp_client_flag &= ~(1<<5);//标记连接断开了
 }
-#if 0
-/*
-*********************************************************************************************************
-*	函 数 名: LwipClientPro
-*	功能说明: tcp客户端任务函数 
-*	形    参：void
-*	返 回 值: void
-*********************************************************************************************************
-*/
-void LwipClientPro(void)
-{
-	u32                 data_len = 0;
-	struct pbuf         *q;
-	err_t               err, recv_err;
-	static ip_addr_t    server_ipaddr, loca_ipaddr;
-	static u16 		    server_port, loca_port;
-
-	server_port = REMOTE_PORT;
-	//IP4_ADDR(&server_ipaddr, lwipdev.remoteip[0],lwipdev.remoteip[1], lwipdev.remoteip[2],lwipdev.remoteip[3]);
-	IP4_ADDR(&server_ipaddr, 192, 168, 1, 5);
-    
-	while (1) 
-	{
-        // 创建一个TCP链接
-		tcp_clientconn = netconn_new(NETCONN_TCP);
-        
-        // 连接服务器, 返回值不等于ERR_OK,删除tcp_clientconn连接
-		err = netconn_connect(tcp_clientconn, &server_ipaddr, server_port);
-        if(err != ERR_OK)  
-        {
-            netconn_delete(tcp_clientconn);
-        }
-		else if (err == ERR_OK)    //处理新连接的数据
-		{ 
-			struct netbuf *recvbuf;
-			tcp_clientconn->recv_timeout = 10;
-			netconn_getaddr(tcp_clientconn, &loca_ipaddr, &loca_port, 1); //获取本地IP主机IP地址和端口号
-			while(1)
-			{
-				if((tcp_client_flag & LWIP_SEND_DATA) == LWIP_SEND_DATA) //有数据要发送
-				{
-					err = netconn_write(tcp_clientconn ,tcp_client_sendbuf, strlen((char*)tcp_client_sendbuf), NETCONN_COPY); //发送tcp_server_sentbuf中的数据
-					if(err != ERR_OK)
-					{
-						// 发送失败的情况
-					}
-					tcp_client_flag &= ~LWIP_SEND_DATA;
-				}
-					
-                recvbuf = netconn_recv(tcp_clientconn);
-				if(recvbuf)  //接收到数据
-				{	
-					// OS_ENTER_CRITICAL(); //关中断
-					memset(tcp_client_recvbuf, 0, TCP_CLIENT_RX_BUFSIZE);  //数据接收缓冲区清零
-					for(q=recvbuf->p;q!=NULL;q=q->next)  //遍历完整个pbuf链表
-					{
-						//判断要拷贝到TCP_CLIENT_RX_BUFSIZE中的数据是否大于TCP_CLIENT_RX_BUFSIZE的剩余空间，如果大于
-						//的话就只拷贝TCP_CLIENT_RX_BUFSIZE中剩余长度的数据，否则的话就拷贝所有的数据
-						if(q->len > (TCP_CLIENT_RX_BUFSIZE-data_len)) memcpy(tcp_client_recvbuf+data_len,q->payload,(TCP_CLIENT_RX_BUFSIZE-data_len));//拷贝数据
-						else memcpy(tcp_client_recvbuf+data_len,q->payload,q->len);
-						data_len += q->len;  	
-						if(data_len > TCP_CLIENT_RX_BUFSIZE) break; //超出TCP客户端接收数组,跳出	
-					}
-					// OS_EXIT_CRITICAL();  //开中断
-					data_len=0;  //复制完成后data_len要清零。					
-					printf("%s\r\n",tcp_client_recvbuf);
-					netbuf_delete(recvbuf);
-				}else if(recvbuf == NULL)  //关闭连接
-				{
-					netconn_close(tcp_clientconn);
-					netconn_delete(tcp_clientconn);
-					printf("服务器%d.%d.%d.%d断开连接\r\n",192, 168, 1,5);
-					break;
-				}
-			}
-		}
-	}
-}
-#endif
 /***************************** 迭迩塔智控 www.delta.com (END OF FILE) *********************************/

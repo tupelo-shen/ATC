@@ -82,7 +82,8 @@ extern u8 tcp_client_flag;		                        //TCP客户端数据发送标志位
 /********************************************************************************************************
  *                                          FUNC DEFINITION
  ********************************************************************************************************/
-void LwipClientPro(void);
+err_t LwipClientConnect(void);
+err_t LwipClientReconnect(void);
 
 #endif
 
