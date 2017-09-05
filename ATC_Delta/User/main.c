@@ -278,7 +278,7 @@ static  void  AppTaskStart (void *p_arg)
 
     AppObjCreate();                                            
     AppTaskCreate(); 
-    LwipClientPro();
+    LwipClientConnect();
     while (1)
 	{  
 		/* 1msÒ»´Î´¥ÃþÉ¨Ãè£¬µç×è´¥ÃþÆÁ */
